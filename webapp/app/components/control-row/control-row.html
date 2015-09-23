@@ -1,0 +1,16 @@
+<div class="control-row">
+    <div class="max-width">
+        <div class="cr-dropdown__wrap--m">
+            <div class="cr-dropdown-blocker" ng-class="{'cr-dropdown-blocker--open': cr.menus[2].active}" ng-click="cr.closeMenu(2)"></div>
+            <button class="cr-dropdown__toggle" ng-class="{'cr-dropdown__toggle--open': cr.menus[2].active}" ng-click="cr.toggleMenu(2)">
+                Kaupungit
+                <i class="fa fa-chevron-down"></i>
+            </button>
+            <div class="cr-dropdown--m" ng-class="{'cr-dropdown--open': cr.menus[2].active}" ng-if="cr.menus[2].active">
+                <ul class="normal-list">
+                    <li class="normal-list__item" ng-repeat="city in cr.cities" ng-click="cr.selectCity($index)"><input type="checkbox" ng-model="city.selected">{{city.name}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

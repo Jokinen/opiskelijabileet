@@ -1,0 +1,5 @@
+*/migrations
+*.egg-info
+*.pot
+*.py[co]
+__pycache__

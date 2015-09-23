@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="django" name="Django">
+      <configuration>
+        <option name="rootFolder" value="$MODULE_DIR$/server" />
+        <option name="settingsModule" value="opiskelijabileet/settings.py" />
+        <option name="manageScript" value="manage.py" />
+        <option name="environment" value="&lt;map/&gt;" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="TemplatesService">
+    <option name="TEMPLATE_CONFIGURATION" value="Django" />
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/webapp/app" />
+        <option value="$MODULE_DIR$/webapp/app/events" />
+        <option value="$MODULE_DIR$/webapp/app/events/list" />
+        <option value="$MODULE_DIR$/webapp/app/components/main-menu" />
+        <option value="$MODULE_DIR$/webapp/app/components/control-row" />
+        <option value="$MODULE_DIR$/webapp/app/bower_components/html5-boilerplate/src" />
+        <option value="$MODULE_DIR$/webapp/app/bower_components/html5-boilerplate/dist" />
+        <option value="$MODULE_DIR$/webapp/node_modules/gulp/node_modules/gulp-util/node_modules/vinyl/node_modules/clone" />
+        <option value="$MODULE_DIR$/webapp/node_modules/bower/node_modules/request/node_modules/node-uuid/test" />
+        <option value="$MODULE_DIR$/webapp/node_modules/bower/node_modules/cardinal/node_modules/redeyed/examples/browser" />
+        <option value="$MODULE_DIR$/webapp/node_modules/bower/node_modules/handlebars/coverage/lcov-report" />
+        <option value="$MODULE_DIR$/webapp/node_modules/bower/node_modules/handlebars/coverage/lcov-report/lib" />
+        <option value="$MODULE_DIR$/webapp/node_modules/bower/node_modules/handlebars/coverage/lcov-report/dist/cjs" />
+        <option value="$MODULE_DIR$/webapp/node_modules/bower/node_modules/handlebars/coverage/lcov-report/dist/cjs/handlebars" />
+        <option value="$MODULE_DIR$/webapp/node_modules/bower/node_modules/handlebars/coverage/lcov-report/dist/cjs/handlebars/compiler" />
+        <option value="$MODULE_DIR$/webapp/node_modules/bower/node_modules/handlebars/coverage/lcov-report/spec" />
+        <option value="$MODULE_DIR$/webapp/node_modules/bower/node_modules/handlebars/coverage/lcov-report/spec/env" />
+        <option value="$MODULE_DIR$/webapp/node_modules/bower/node_modules/configstore/node_modules/js-yaml/node_modules/argparse/node_modules/sprintf-js/demo" />
+        <option value="$MODULE_DIR$/webapp/node_modules/bower/node_modules/bower-registry-client/node_modules/request/node_modules/node-uuid/test" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/static" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_debug_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_levels_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_log4js_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_logger_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_layouts_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_date_format_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_streams_index_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_appenders_file_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_appenders_gelf_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_appenders_smtp_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_connect_logger_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_appenders_loggly_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_appenders_console_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_appenders_dateFile_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_appenders_fileSync_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_appenders_clustered_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_appenders_logstashUDP_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_appenders_multiprocess_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_appenders_categoryFilter_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_appenders_logLevelFilter_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_streams_RollingFileStream_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_streams_BaseRollingFileStream_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/log4js/.bob/complexity/plato/files/lib_streams_DateRollingFileStream_js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/connect/node_modules/serve-index/public" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/connect/node_modules/errorhandler/public" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/socket.io/node_modules/policyfile/doc" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/lib/vendor/web-socket-js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/uglify-js" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/node_modules/active-x-obfuscator/node_modules/zeparser" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/http-proxy/node_modules/colors" />
+        <option value="$MODULE_DIR$/webapp/node_modules/karma/node_modules/http-proxy/node_modules/pkginfo/docs" />
+        <option value="$MODULE_DIR$/webapp/node_modules/gulp-watch/node_modules/vinyl/node_modules/clone" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/plugins/timeline" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp/form" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp/async" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp/ngHint" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp/shadow" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp/console" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp/polling" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp/bindings" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp/conflict" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp/repeater" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp/animation" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp/interaction" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/testapp/accessibility" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/request/node_modules/node-uuid/test" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/child" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/child/grandchild" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/html5" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/proxy" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/safari" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/screen" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/overflow" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/key_tests" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/click_tests" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/modal_dialogs" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/locators_tests" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/scrolling_tests" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/coordinates_tests" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/frame_switching_tests" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/lib/test/data/window_switching_tests" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/io" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/dom" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/net" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/uri" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/iter" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/json" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/labs/testing" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/labs/useragent" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/math" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/array" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/async" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/debug" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/style" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/events" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/object" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/string" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/asserts" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/promise" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/reflect" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/structs" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/testing" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/testing/events" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/functions" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/useragent" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/goog/disposable" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/atoms" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/webdriver" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/webdriver/http" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/lib/webdriver/testing" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/net" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/http" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/remote" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/firefox" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/docs/source/testing" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/node_modules/xml2js/node_modules/sax" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/selenium-webdriver/node_modules/xml2js/node_modules/sax/examples" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/source-map-support/amd-test" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/source-map-support/header-test" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/source-map-support/browser-test" />
+        <option value="$MODULE_DIR$/webapp/node_modules/protractor/node_modules/accessibility-developer-tools/test" />
+        <option value="$MODULE_DIR$/webapp/node_modules/gulp-stylus/node_modules/accord/node_modules/uglify-js/tools" />
+        <option value="$MODULE_DIR$/webapp/node_modules/gulp-stylus/node_modules/stylus/node_modules/sax" />
+        <option value="$MODULE_DIR$/webapp/node_modules/gulp-stylus/node_modules/stylus/node_modules/sax/examples" />
+        <option value="$MODULE_DIR$/webapp/node_modules/gulp-stylus/node_modules/gulp-util/node_modules/vinyl/node_modules/clone" />
+        <option value="$MODULE_DIR$/webapp/node_modules/http-server/public" />
+        <option value="$MODULE_DIR$/webapp/node_modules/http-server/node_modules/union/examples/socketio" />
+        <option value="$MODULE_DIR$/webapp/node_modules/http-server/node_modules/union/node_modules/qs/test/browser" />
+        <option value="$MODULE_DIR$/webapp/node_modules/http-server/node_modules/union/node_modules/pkginfo/docs" />
+        <option value="$MODULE_DIR$/webapp/node_modules/http-server/node_modules/colors" />
+        <option value="$MODULE_DIR$/webapp/node_modules/http-server/node_modules/ecstatic/test/public" />
+        <option value="$MODULE_DIR$/webapp/node_modules/http-server/node_modules/ecstatic/test/public/中文" />
+        <option value="$MODULE_DIR$/webapp/node_modules/http-server/node_modules/ecstatic/test/public/subdir" />
+        <option value="$MODULE_DIR$/webapp/node_modules/http-server/node_modules/ecstatic/test/public/subdir_with space" />
+        <option value="$MODULE_DIR$/webapp/node_modules/http-server/node_modules/ecstatic/example/public/beep" />
+        <option value="$MODULE_DIR$/webapp/node_modules/gulp-livereload/node_modules/tiny-lr/examples/express" />
+        <option value="$MODULE_DIR$/webapp/node_modules/gulp-livereload/node_modules/tiny-lr/node_modules/faye-websocket/examples" />
+        <option value="$MODULE_DIR$/webapp/node_modules/gulp-livereload/node_modules/gulp-util/node_modules/vinyl/node_modules/clone" />
+      </list>
+    </option>
+  </component>
+</module>

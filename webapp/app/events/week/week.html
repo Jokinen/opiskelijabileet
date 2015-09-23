@@ -1,0 +1,36 @@
+<control-row city="week.city" year="week.year" month="week.month" day="week.day"></control-row>
+<div class="date-list cf">
+    <div class="date-list__date" ng-repeat="date in week.dates">
+        <div class="date-title">
+            <span class="date-title__weekday">
+            {{date.date | date:'EEEE'}}
+            </span>
+            <span class="date-title__date">
+            {{date.date | date:'(MMM d, y)'}}
+            </span>
+        </div>
+        <div class="event-list">
+            <div class="event-item" ng-repeat="event in date.events">
+                <div class="event-item__header">
+                    <div class="event-item__image">
+                        <img ng-src="{{event.image}}" alt="{{event.name}}'s photo">
+                    </div>
+                    <div class="event-item__header-text-wrap cf">
+                        <div class="event-item__name">{{event.name}}</div>
+                        <div class="event-item__organizer">{{event.owner_group.group.name}}</div>
+                        <div class="event-item__date-range cf">
+                            <div class="event-item__start-date">{{event.start_time | date:'MMM d H:mm'}}</div>
+                            <div class="event-item__end-date">{{event.end_time | date:'MMM d H:mm'}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-item__body">
+                    <div class="event-item__description">{{event.description}}</div>
+                    <div class="event-item__control-row">
+                        <button class="button button--primary">Lisätiedot</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
