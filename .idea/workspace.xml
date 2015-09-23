@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ca44b542-ce9e-4bf5-a15b-ae43a941c283" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="opiskelijabileet.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -988,7 +987,7 @@
       <workItem from="1441645577767" duration="6107000" />
       <workItem from="1442084702032" duration="2762000" />
       <workItem from="1442154496868" duration="590000" />
-      <workItem from="1442999123594" duration="1273000" />
+      <workItem from="1442999123594" duration="1334000" />
     </task>
     <task id="LOCAL-00001" summary="change: remove .idea project folder">
       <created>1443000481485</created>
@@ -996,11 +995,17 @@
       <option name="project" value="LOCAL" />
       <updated>1443000481485</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="change: remove .idea project folder">
+      <created>1443000589332</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1443000589332</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48221000" />
+    <option name="totallyTimeSpent" value="48282000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
