@@ -1,10 +1,8 @@
 import datetime
 from event.models import Event
 from event.serializers import EventSerializer
-from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
 
 
 class EventList(APIView):
@@ -23,10 +21,10 @@ class DateQuery(APIView):
     """
     def get(self, request):
         if request.method == 'GET':
-            print("proot")
-            events = Event.objects.all()
-            if 'city' in request.GET:
-                events = events.filter(city__name=request.GET['city'])
+            events = Event.objects.all().select_related()
+            if 'cities' in request.GET:
+                cities = request.GET['cities'].split(',')
+                events = events.filter(city__name__in=cities)
             if 'year' in request.GET \
                     and 'month' in request.GET \
                     and 'day' in request.GET \
