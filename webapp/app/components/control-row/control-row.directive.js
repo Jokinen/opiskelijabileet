@@ -12,10 +12,9 @@
             controller: 'ControlRowController as cr',
             scope: {
                 city: "=",
-                year: "=",
-                month: "=",
-                day: "=",
-                daterange: "="
+                startDate: "=",
+                endDate: "=",
+                update: "="
             }
         }
     }
