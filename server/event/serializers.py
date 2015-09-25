@@ -13,7 +13,12 @@ class EventSerializer(serializers.ModelSerializer):
             'owner_group',
             'name',
             'city',
+            'place',
             'description',
+            'fb_url',
+            'insta_url',
+            'tw_url',
+            'url',
             'image_thumb',
             'start_time',
             'end_time'
