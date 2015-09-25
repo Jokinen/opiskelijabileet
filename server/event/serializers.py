@@ -15,6 +15,10 @@ class EventSerializer(serializers.ModelSerializer):
             'city',
             'place',
             'description',
+            'fb_url',
+            'insta_url',
+            'tw_url',
+            'url',
             'image_thumb',
             'start_time',
             'end_time'

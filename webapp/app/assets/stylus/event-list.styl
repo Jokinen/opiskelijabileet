@@ -143,11 +143,22 @@
       }
       .event-item__inforow {
         color #555
-        padding 0 16px
+        padding 4px 16px 0
         &--selected {
           padding 10px 0
           border-top 1px solid #eee
           border-bottom 1px solid #eee
+        }
+        & .fa {
+          font-size 12px
+          color #fff
+          float left
+          width 18px
+          padding 3px 0 3px
+          margin 2px 4px 1px 0
+          background #ccc
+          border-radius 3px
+          text-align center
         }
       }
         .event-item__label {
@@ -157,12 +168,7 @@
         }
         .event-item__organizer {
           float:left;
-
-          &:after {
-            content: '\b7';
-            display:inline-block;
-            margin:0 5px;
-          }
+          padding 0 14px 0 0
           &--selected {
             padding 0 16px 0
             font-size 18px
@@ -174,12 +180,7 @@
         }
         .event-item__place {
           float left
-
-          &:after {
-            content: '\b7';
-            display:inline-block;
-            margin:0 5px;
-          }
+          padding 0 14px 0 0
           &--selected {
             padding 0 16px 0
             font-size 18px
@@ -207,10 +208,51 @@
           .event-item__end-date {
             float:left;
           }
-
-    .event-item__description {
-      padding:20px 16px 10px;
+    .event-item__main {
+      position relative
+      margin-top 6px
     }
+      .event-item__description {
+        padding:0 16px 10px;
+        margin-right 200px
+        white-space pre-wrap
+      }
+      .event-item__links {
+        position absolute
+        top 0
+        right 0
+        width 200px
+        padding 0 10px 0
+      }
+        .event-item__link {
+          display block
+          width 100%
+          padding 5px 16px 5px 12px
+          margin 0 0 8px
+          border-radius 4px
+          text-decoration none
+          color #fff
+          font-weight 600
+          & .fa {
+            width 20px
+          }
+          &--fb {
+            color #3b5998
+            border 2px solid #3b5998
+          }
+          &--insta {
+            color #517fa4
+            border 2px solid #517fa4
+          }
+          &--tw {
+            color #00aced
+            border 2px solid #00aced
+          }
+          &--url {
+            color rgba(0,0,0,0.5)
+            border 2px solid rgba(0,0,0,0.16)
+          }
+        }
     .event-item__control-row {
       padding:0 0 16px;
       text-align:center;

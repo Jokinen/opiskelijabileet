@@ -42,16 +42,19 @@
                                  ng-class="{'event-item__organizer--selected': event.selected}">
                                 <div class="event-item__label"
                                      ng-if="event.selected">Järjestäjä</div>
+                                <i class="fa fa-users" ng-if="!event.selected"></i>
                                 {{event.owner_group.group.name}}
                             </div>
                             <div class="event-item__place"
                                  ng-class="{'event-item__place--selected': event.selected}">
                                 <div class="event-item__label"
                                      ng-if="event.selected">Paikka</div>
+                                <i class="fa fa-map-marker" ng-if="!event.selected"></i>
                                 {{event.place}}
                             </div>
                             <div class="event-item__date-range cf"
                                  ng-if="event.start_time.getDay() === event.end_time.getDay() && !event.selected">
+                                <i class="fa fa-clock-o" ng-if="!event.selected"></i>
                                 <div class="event-item__start-date">{{event.start_time | date:'H:mm'}}</div>
                                 <div class="event-item__end-date">{{event.end_time | date:'H:mm'}}</div>
                             </div>
@@ -60,39 +63,41 @@
                                  ng-class="{'event-item__date-range--selected': event.selected}">
                                 <div class="event-item__label"
                                      ng-if="event.selected">Aika</div>
+                                <i class="fa fa-clock-o" ng-if="!event.selected"></i>
                                 <div class="event-item__start-date">{{event.start_time | date:'MMM d H:mm'}}</div>
                                 <div class="event-item__end-date">{{event.end_time | date:'MMM d H:mm'}}</div>
                             </div>
                         </div>
                     </div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
-                    <div class="event-item__description" ng-if="event.selected">end</div>
-                    <!--<div class="event-item__control-row">
-                        <button class="button button--primary">Lisätiedot</button>
-                    </div>-->
+                    <div class="event-item__main">
+                        <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                        <div class="event-item__links" ng-if="event.selected">
+                            <a href="{{event.fb_url}}" target="_blank"
+                               class="event-item__link event-item__link--fb"
+                               ng-if="event.fb_url">
+                                <i class="fa fa-facebook"></i>
+                                Facebook
+                            </a>
+                            <a href="{{event.insta_url}}" target="_blank"
+                               class="event-item__link event-item__link--insta"
+                               ng-if="event.insta_url">
+                                <i class="fa fa-instagram"></i>
+                                Instagram
+                            </a>
+                            <a href="{{event.tw_url}}" target="_blank"
+                               class="event-item__link event-item__link--tw"
+                               ng-if="event.tw_url">
+                                <i class="fa fa-twitter"></i>
+                                Twitter
+                            </a>
+                            <a href="{{event.url}}" target="_blank"
+                               class="event-item__link event-item__link--url"
+                               ng-if="event.url">
+                                <i class="fa fa-link"></i>
+                                Nettisivu
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
