@@ -9,28 +9,93 @@
             {{date.date | date:'(MMM d, y)'}}
             </span>
         </div>
-        <div class="event-list">
-            <div class="event-item" ng-repeat="event in date.events">
-                <div class="event-item__header">
+        <div class="event-list--empty"
+             ng-if="date.events.length === 0">
+            Tälle päivälle ei ole tapahtumia
+        </div>
+        <div class="event-list"
+             ng-if="date.events.length > 0">
+            <div class="event-item"
+                 ng-repeat="event in date.events | orderBy:'start_time'"
+                 ng-click="week.openEvent($parent.$index, $index)"
+                 ng-class="{'event-item--selected': event.selected}">
+                <div class="event-item__close"
+                     ng-if="event.selected"
+                     ng-click="week.closeEvent(); $event.stopPropagation()"></div>
+                <div class="event-item__header"
+                     ng-class="{'event-item__header--selected': event.selected}">
                     <div class="event-item__image">
-                        <img ng-src="{{event.image}}" alt="{{event.name}}'s photo">
-                    </div>
-                    <div class="event-item__header-text-wrap cf">
-                        <div class="event-item__name">{{event.name}}</div>
-                        <div class="event-item__organizer">{{event.owner_group.group.name}}</div>
-                        <div class="event-item__date-range cf">
-                            <div class="event-item__start-date">{{event.start_time | date:'MMM d H:mm'}}</div>
-                            <div class="event-item__end-date">{{event.end_time | date:'MMM d H:mm'}}</div>
-                        </div>
+                        <img ng-if="event.image" ng-src="{{event.image}}" alt="{{event.name}}'s photo">
+                        <img ng-if="!event.image" src="http://localhost:8000/static/assets/images/despicable-me-disco-minions.jpg" alt="{{event.name}}'s photo">
                     </div>
                 </div>
                 <div class="event-item__body">
-                    <div class="event-item__description">{{event.description}}</div>
-                    <div class="event-item__control-row">
-                        <button class="button button--primary">Lisätiedot</button>
+                    <div class="event-item__title-text-wrap cf"
+                         ng-class="{'event-item__title-text-wrap--selected': event.selected}">
+                        <div class="event-item__name"
+                             ng-class="{'event-item__name--selected': event.selected}">
+                            {{event.name}}
+                        </div>
+                        <div class="event-item__inforow cf"
+                             ng-class="{'event-item__inforow--selected': event.selected}">
+                            <div class="event-item__organizer"
+                                 ng-class="{'event-item__organizer--selected': event.selected}">
+                                <div class="event-item__label"
+                                     ng-if="event.selected">Järjestäjä</div>
+                                {{event.owner_group.group.name}}
+                            </div>
+                            <div class="event-item__place"
+                                 ng-class="{'event-item__place--selected': event.selected}">
+                                <div class="event-item__label"
+                                     ng-if="event.selected">Paikka</div>
+                                {{event.place}}
+                            </div>
+                            <div class="event-item__date-range cf"
+                                 ng-if="event.start_time.getDay() === event.end_time.getDay() && !event.selected">
+                                <div class="event-item__start-date">{{event.start_time | date:'H:mm'}}</div>
+                                <div class="event-item__end-date">{{event.end_time | date:'H:mm'}}</div>
+                            </div>
+                            <div class="event-item__date-range cf"
+                                 ng-if="event.start_time.getDay() !== event.end_time.getDay() || event.selected"
+                                 ng-class="{'event-item__date-range--selected': event.selected}">
+                                <div class="event-item__label"
+                                     ng-if="event.selected">Aika</div>
+                                <div class="event-item__start-date">{{event.start_time | date:'MMM d H:mm'}}</div>
+                                <div class="event-item__end-date">{{event.end_time | date:'MMM d H:mm'}}</div>
+                            </div>
+                        </div>
                     </div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">{{event.description}}</div>
+                    <div class="event-item__description" ng-if="event.selected">end</div>
+                    <!--<div class="event-item__control-row">
+                        <button class="button button--primary">Lisätiedot</button>
+                    </div>-->
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="full-backdrop" ng-if="week.selectedEvent.active" ng-click="week.closeEvent()"></div>

@@ -13,6 +13,7 @@ class EventSerializer(serializers.ModelSerializer):
             'owner_group',
             'name',
             'city',
+            'place',
             'description',
             'image_thumb',
             'start_time',

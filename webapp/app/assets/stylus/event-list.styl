@@ -9,14 +9,13 @@
   right:0;
 }
   .date-list__date {
-    width: 300px;
+    width: 400px;
     height:100%;
     display: inline-block;
     vertical-align: top;
     white-space: normal;
     margin: 0 5px;
     border-bottom 10px solid transparent
-    overflow hidden
     &:first-child {
       margin-left 20px
     }
@@ -26,6 +25,7 @@
   }
 .date-title {
   padding 0 0 5px
+  text-align center
 }
   .date-title__weekday {
     color #999
@@ -39,21 +39,82 @@
 
 .event-list {
   max-height 100%
-  overflow-x hidden
   overflow-y auto
-  padding-bottom 20px
+  padding 0 10px 20px
+  margin 0 -10px
+
+  &--empty {
+    width 80%
+    height 90%
+    margin 0 auto
+    background rgba(0,0,0,0.05)
+    border-radius 8px
+    text-align center
+    padding 160px 50px
+    font-size 22px
+    font-weight 600
+    color rgba(0,0,0,0.16)
+  }
 }
 
 .event-item {
   background:#fff;
   margin-bottom:15px;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.20), 0 0 0 1px rgba(0,0,0,.04);
+  border-radius: 3px;
+
+  &:hover {
+    transition box-shadow 0.2s ease-in
+    box-shadow 0 1px 10px op-blue, 0 0 0 1px rgba(0,0,0,0.20)
+  }
+
+  &--selected {
+    position fixed
+    left 0
+    right 0
+    top 0
+    z-index 2001
+    width 100%
+    max-width 600px
+    margin 1% auto
+    max-height 96%
+    overflow-y auto
+    transition all 0.2s ease-in
+  }
 }
+  .event-item__close {
+    width 40px
+    height 40px
+    position absolute
+    z-index 100
+    right 0
+    top 0
+    cursor pointer
+    color rgba(255,255,255,0.4)
+
+    &:hover {
+      transition color 0.1s ease-in
+      color #fff
+    }
+
+    &:before {
+      content "\f057"
+      display block
+      width 100%
+      height 100%
+      text-align center
+      font-family fontawesome
+      font-size 30px
+    }
+  }
+
   .event-item__header {
-    padding:80px 0 0;
-    border-bottom:1px solid rgba(0,0,0,0.12);
+    height 100px
     position:relative;
-    border-radius:3px 3px 0 0;
-    overflow:hidden;
+
+    &--selected {
+      height 200px
+    }
   }
     .event-item__image {
       position:absolute;
@@ -61,55 +122,94 @@
       left:0;
       width:100%;
       height:100%;
+      border-radius:3px 3px 0 0;
       overflow:hidden;
     }
-      .event-item__image img {
-        position:relative;
-        top:-40%;
-      }
-    .event-item__header-text-wrap {
-      position:relative;
-      color:#fff;
-      padding:10px 20px;
-      background:rgba(0,0,0,0.5);
-      box-shadow:0 0 20px rgba(0,0,0,0.9);
-    }
-      .event-item__name {
-        font-size:18px;
-        font-weight:700;
-      }
-      .event-item__organizer {
-        float:left;
-      }
-      .event-item__organizer:after {
-        content: '\b7';
-        display:inline-block;
-        margin:0 5px;
-      }
-      .event-item__date-range {
-        float:left;
-      }
-      .event-item__start-date {
-        float:left;
-      }
-      .event-item__start-date:after {
-        content: '\2013';
-        display:inline-block;
-        margin:0 5px;
-      }
-      .event-item__end-date {
-        float:left;
-      }
+      .event-item__image img {}
 
   .event-item__body {
-    border:1px solid rgba(0,0,0,0.14);
-    border-bottom:0;
-    border-top:none;
-    box-shadow:0 2px 1px rgba(0,0,0,0.14);
-    border-radius:0 0 3px 3px;
   }
+    .event-item__title-text-wrap {
+      padding:10px 0;
+    }
+      .event-item__name {
+        font-size:20px;
+        font-weight:500;
+        padding 0 16px 0
+        &--selected {
+          font-size 26px
+          padding 4px 16px 12px
+        }
+      }
+      .event-item__inforow {
+        color #555
+        padding 0 16px
+        &--selected {
+          padding 10px 0
+          border-top 1px solid #eee
+          border-bottom 1px solid #eee
+        }
+      }
+        .event-item__label {
+          text-transform uppercase
+          color #aaa
+          font-size 12px
+        }
+        .event-item__organizer {
+          float:left;
+
+          &:after {
+            content: '\b7';
+            display:inline-block;
+            margin:0 5px;
+          }
+          &--selected {
+            padding 0 16px 0
+            font-size 18px
+            border-right 1px solid #eee
+            &:after {
+              display none
+            }
+          }
+        }
+        .event-item__place {
+          float left
+
+          &:after {
+            content: '\b7';
+            display:inline-block;
+            margin:0 5px;
+          }
+          &--selected {
+            padding 0 16px 0
+            font-size 18px
+            border-right 1px solid #eee
+            &:after {
+              display none
+            }
+          }
+        }
+        .event-item__date-range {
+          float:left;
+          &--selected {
+            padding 0 16px 0
+            font-size 18px
+          }
+        }
+          .event-item__start-date {
+            float:left;
+            &:after {
+              content: '\2013';
+              display:inline-block;
+              margin:0 5px;
+            }
+          }
+          .event-item__end-date {
+            float:left;
+          }
+
     .event-item__description {
-      padding:20px 20px 10px;
+      padding:20px 16px 10px;
     }
     .event-item__control-row {
       padding:0 0 16px;

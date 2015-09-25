@@ -24,6 +24,22 @@
             loadEvents(city, startDate, endDate);
         };
 
+        vm.openEvent = function(dayIndex, eventIndex) {
+            if (!vm.selectedEvent.active) {
+                vm.dates[dayIndex].events[eventIndex].selected = true;
+                vm.selectedEvent = {
+                    active: true,
+                    dayIndex: dayIndex,
+                    eventIndex: eventIndex
+                };
+            }
+        };
+
+        vm.closeEvent = function() {
+            vm.dates[vm.selectedEvent.dayIndex].events[vm.selectedEvent.eventIndex].selected = false;
+            vm.selectedEvent.active = false;
+        };
+
         function init() {
             if ($stateParams.cities) {
                 vm.cities = $stateParams.cities
@@ -41,6 +57,10 @@
             } else {
                 weekday = weekday - 1
             }
+            vm.selectedEvent = {
+                active:false,
+                event: {}
+            };
             vm.startDate = new Date(new Date().setDate(startDate.getDate()-weekday));
             vm.endDate = new Date(new Date().setDate(vm.startDate.getDate()+7));
             loadEvents(vm.cities, vm.startDate, vm.endDate);

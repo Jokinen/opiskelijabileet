@@ -11,6 +11,7 @@ class Event(models.Model):
     owner = models.ForeignKey(User)
     owner_group = models.ForeignKey(GroupProfile)
     city = models.ForeignKey(City)
+    place = models.CharField(max_length=100, blank=True)
     name = models.CharField(max_length=200, blank=True)
     description = models.CharField(max_length=1000, blank=True)
     image_thumb = models.ImageField(upload_to = 'wallpapers/thumb/', blank=True, default="/images/404thumb.jpg")
