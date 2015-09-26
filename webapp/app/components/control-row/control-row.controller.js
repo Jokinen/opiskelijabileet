@@ -40,11 +40,22 @@
             vm.menus.state = '';
         };
 
+        vm.openSearch = function() {
+            vm.search.open = true;
+        };
+
+        vm.closeSearch = function() {
+            vm.search.open = false;
+        };
+
         function init() {
             vm.state = $state.current.name;
             vm.menus = {
                 open: false,
                 state: '' // city, date
+            };
+            vm.search = {
+              open: false
             };
             vm.citiesObj = [
                 {

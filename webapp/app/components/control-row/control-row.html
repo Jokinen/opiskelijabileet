@@ -26,6 +26,17 @@
                     ng-class="{'cr-date-button--open': cr.menus.state === 'date'}">
                 <i class="fa fa-caret-down"></i>
             </button>
+            <button type="button" class="cr-filter__close"
+                    ng-click="cr.closeSearch()"
+                    ng-show="cr.search.open">
+                <i class="fa fa-times"></i>
+            </button>
+            <button type="button" class="cr-filter__button"
+                    ng-click="cr.openSearch()"
+                    ng-class="{'cr-filter__button--open': cr.search.open}">
+                <i class="fa fa-search"></i>
+            </button>
+            <input type="text" placeholder="Suodata tapahtumia" ng-model="cr.visibleFilter" class="cr-filter__input" ng-class="{'cr-filter__input--open': cr.search.open}">
         </div>
         <div class="cr-menu__content" ng-class="{'cr-menu__content--open': cr.menus.state === 'city'}">
             <div class="cr-menu__item" ng-class="{'cr-menu__item--open': cr.menus.state === 'city'}">
