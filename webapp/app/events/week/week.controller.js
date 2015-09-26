@@ -63,6 +63,7 @@
             };
             vm.startDate = new Date(new Date().setDate(startDate.getDate()-weekday));
             vm.endDate = new Date(new Date().setDate(vm.startDate.getDate()+7));
+            vm.visibleFilter = '';
             loadEvents(vm.cities, vm.startDate, vm.endDate);
         }
         init();

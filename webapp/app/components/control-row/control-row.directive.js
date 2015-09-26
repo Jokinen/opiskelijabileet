@@ -14,7 +14,8 @@
                 city: "=",
                 startDate: "=",
                 endDate: "=",
-                update: "="
+                update: "=",
+                visibleFilter: "="
             }
         }
     }

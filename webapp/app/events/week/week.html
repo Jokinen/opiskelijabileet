@@ -1,4 +1,4 @@
-<control-row data-cities="week.city" start-date="week.startDate" end-date="week.endDate" update="week.updateEvents" style="position:relative;"></control-row>
+<control-row data-cities="week.city" start-date="week.startDate" end-date="week.endDate" update="week.updateEvents" visible-filter="week.visibleFilter" style="position:relative;"></control-row>
 <div class="date-list cf">
     <div class="date-list__date" ng-repeat="date in week.dates">
         <div class="date-title">
@@ -16,7 +16,7 @@
         <div class="event-list"
              ng-if="date.events.length > 0">
             <div class="event-item"
-                 ng-repeat="event in date.events | orderBy:'start_time'"
+                 ng-repeat="event in date.events | orderBy:'start_time' | filter:week.visibleFilter"
                  ng-click="week.openEvent($parent.$index, $index)"
                  ng-class="{'event-item--selected': event.selected}">
                 <div class="event-item__close"
