@@ -20,39 +20,32 @@
             if (cities.length === 0) {
                 cities = 'all';
             }
-            vm.update(cities, vm.startDate, vm.endDate);
+            if (vm.startDate && vm.endDate)
+                vm.update(cities, vm.startDate, vm.endDate);
         };
 
-        vm.toggleMenu = function(index) {
-            if (vm.menus[index].active) {
-                vm.closeMenu(index);
+        vm.toggleMenu = function(state) {
+            if (vm.menus.open && vm.menus.state == state) {
+                vm.closeMenu(state);
             } else {
-                vm.openMenu(index);
+                vm.openMenu(state);
             }
         };
-        vm.openMenu = function(index) {
-            vm.menus[index].active = true;
+        vm.openMenu = function(state) {
+            vm.menus.open = true;
+            vm.menus.state = state;
         };
-        vm.closeMenu = function(index) {
-            vm.menus[index].active = false;
+        vm.closeMenu = function() {
+            vm.menus.open = false;
+            vm.menus.state = '';
         };
 
         function init() {
             vm.state = $state.current.name;
-            vm.menus = [
-                {
-                    name: 'date',
-                    active: false
-                },
-                {
-                    name: 'week',
-                    active: false
-                },
-                {
-                    name: 'month',
-                    active: false
-                }
-            ];
+            vm.menus = {
+                open: false,
+                state: '' // city, date
+            };
             vm.citiesObj = [
                 {
                     name: 'Turku'

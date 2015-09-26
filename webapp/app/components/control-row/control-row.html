@@ -1,9 +1,9 @@
 <div class="control-row control-row--open">
     <div class="max-width cf">
         <div class="cr-menu__controls">
-            <button class="cr-menu__control" ng-class="{'cr-dropdown__toggle--open': cr.menus[2].active}" ng-click="cr.toggleMenu(2)">
+            <button class="cr-menu__control" ng-class="{'cr-menu__control--open': cr.menus.state === 'city'}" ng-click="cr.toggleMenu('city')">
                 Kaupungit
-                <i class="fa fa-chevron-down"></i>
+                <i class="fa fa-caret-down"></i>
             </button>
             <div class="cr-form-group">
                 <div class="cr-input__wrap">
@@ -12,7 +12,7 @@
                            ng-model="cr.startDate"
                            ng-change="cr.updateDays()">
                 </div>
-                <div class="cr-input__separator">&mdash;</div>
+                <div class="cr-input__separator"></div>
                 <div class="cr-input__wrap">
                     <i class="fa fa-calendar"></i>
                     <input class="cr-input" type="date" name="end-date"
@@ -20,9 +20,15 @@
                            ng-change="cr.updateDays()">
                 </div>
             </div>
+            <div class="cr-date-button__separator"></div>
+            <button type="button" class="cr-date-button"
+                    ng-click="cr.toggleMenu('date')"
+                    ng-class="{'cr-date-button--open': cr.menus.state === 'date'}">
+                <i class="fa fa-caret-down"></i>
+            </button>
         </div>
-        <div class="cr-menu__content" ng-class="{'cr-menu__content--open': cr.menus[2].active}">
-            <div class="cr-menu__item" ng-class="{'cr-menu__item--open': cr.menus[2].active}">
+        <div class="cr-menu__content" ng-class="{'cr-menu__content--open': cr.menus.state === 'city'}">
+            <div class="cr-menu__item" ng-class="{'cr-menu__item--open': cr.menus.state === 'city'}">
                 <ul class="city-list cf">
                     <li class="city-list__item"
                         ng-repeat="city in cr.citiesObj"
@@ -37,6 +43,16 @@
                         </label>
                     </li>
                 </ul>
+            </div>
+        </div>
+        <div class="cr-menu__content cr-menu__content--date" ng-class="{'cr-menu__content--open': cr.menus.state === 'date'}">
+            <div class="cr-menu__item cr-menu__item--date" ng-class="{'cr-menu__item--open': cr.menus.state === 'date'}">
+                <div class="date-menu__quick">
+                    <h3 class="date-menu__h3">Nopeat valinnat</h3>
+                    <button type="button" class="button button--primary">Tämä päivä</button>
+                    <button type="button" class="button button--primary">Tämä viikko</button>
+                    <button type="button" class="button button--primary">Tämä kuukausi</button>
+                </div>
             </div>
         </div>
     </div>

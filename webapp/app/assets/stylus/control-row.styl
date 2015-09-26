@@ -24,6 +24,9 @@
   transition all 0.1s ease-in
   outline none
   text-align left
+  &--open {
+    border-bottom 2px solid rgba(255,255,255, 0.3)
+  }
   & .fa
     margin-left 10px
     font-size 14px
@@ -40,11 +43,44 @@
   .cr-menu__control {
     height cr-height
     line-height cr-height
+    position relative
     background transparent
     border none
-    padding 0
+    border-bottom 0 solid rgba(255,255,255, 0.6) // for animation
+    padding 0 24px 0 0
     margin 0 40px 0 0
     float left
+    outline none
+    transition border 0.2s ease-in
+    &--open {
+      border-bottom 4px solid rgba(255,255,255, 0.4)
+    }
+    & .fa {
+      margin-left 10px
+      font-size 14px
+      position absolute
+      top 18px
+      right 0
+    }
+  }
+
+  .cr-date-button {
+    height 26px
+    width 26px
+    margin 12px 0 10px 0
+    border-radius 100%
+    border none
+    background #732885
+    & .fa {
+      margin-top 3px
+    }
+  }
+  .cr-date-button__separator {
+    float left
+    width 15px
+    height 1px
+    margin 24px 0 25px
+    border-top 2px dotted rgba(255,255,255,0.3)
   }
 
   .cr-menu__content {
@@ -68,20 +104,32 @@
       width 100%
       max-height 300px
     }
+    &--date {
+      left 97px
+    }
+    &--open&--date {
+      width 762px
+    }
   }
-    .cr-menu__item
+    .cr-menu__item {
       position relative
       z-index -1
       width 1000px
       opacity 0
-      margin-top -20px
-      padding-bottom 20px
-      transition opacity 0.4s ease-in, margin-top 0.2s ease-in 0.1s, padding-bottom 0.2s ease-in 0.1s
-      &--open
-        transition opacity 0.4s ease-in 0.2s, margin-top 0.2s ease-in 0.3s, padding-bottom 0.2s ease-in 0.3s
+      top -60px
+      left 0
+      padding-bottom 60px
+      transition opacity 0.4s ease-in, top 0.2s ease-in 0.1s, padding-bottom 0.2s ease-in 0.1s
+      &--open {
+        transition opacity 0.4s ease-in, top 0.4s ease-in, padding-bottom 0.4s ease-in
         opacity 1
-        margin-top 0
+        top 0
         padding-bottom 0
+      }
+      &--date {
+        width 762px
+      }
+    }
 
 .city-list {
   margin 0
@@ -112,6 +160,26 @@
     }
   }
 
+.date-menu {}
+  .date-menu__h3 {
+    color #aaa
+    font-weight 500
+    font-size 16px
+    margin 0 0 8px
+  }
+  .date-menu__quick {
+    width 240px
+    float right
+    padding 14px 20px
+    border-left 1px solid #ccc
+
+    & .button {
+      display block
+      margin-bottom 5px
+      width 200px
+    }
+  }
+
 .cr-form-group {
   float left
 }
@@ -124,23 +192,25 @@
 
   & .fa {
     position absolute
-    left 2px
-    top 14px
+    left 10px
+    top 15px
     color rgba(255,255,255,0.6)
   }
 }
   .cr-input {
-    background transparent
-    padding 0 0 0 40px
+    position relative
+    background rgba(255,255,255,0.08)
+    padding 2px 0 2px 40px
+    top -1px
     border none
     color rgba(255,255,255,0.96)
-    border-bottom 2px solid rgba(255,255,255,0.2)
+    border-bottom 2px solid rgba(255,255,255,0.3)
   }
 
   .cr-input__separator {
     float left
-    height cr-height
-    line-height cr-height
-    margin 0 20px
-    color rgba(255,255,255,0.6)
+    width 30px
+    height 1px
+    margin 24px 0 25px
+    border-top 2px solid rgba(255,255,255,0.3)
   }
