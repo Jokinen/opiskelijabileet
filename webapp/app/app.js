@@ -3,9 +3,12 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
-  'ui.router'
+  'ui.router',
+  'datePicker'
 ]).
-config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+config(['$stateProvider',
+        '$urlRouterProvider',
+        function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider

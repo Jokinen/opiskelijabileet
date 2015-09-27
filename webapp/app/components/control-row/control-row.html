@@ -14,6 +14,7 @@
                                max="{{cr.endDate | date:'yyyy-MM-dd'}}"
                                ng-model="cr.startDate"
                                ng-change="cr.updateDays()">
+                        <div date-picker="start" class="cr-input__datepicker"></div>
                     </div>
                     <div class="cr-input__separator"></div>
                     <div class="cr-input__wrap">
@@ -26,9 +27,13 @@
                 </div>
                 <div class="cr-date-button__separator"></div>
                 <button type="button" class="cr-date-button"
-                        ng-click="cr.toggleMenu('date')"
-                        ng-class="{'cr-date-button--open': cr.menus.state === 'date'}">
-                    <i class="fa fa-caret-down"></i>
+                        ng-click="cr.today()">
+                    1d
+                </button>
+                <div class="cr-date-button__separator"></div>
+                <button type="button" class="cr-date-button"
+                        ng-click="cr.thisWeek()">
+                    7d
                 </button>
             </div>
             <button type="button" class="cr-filter__close"

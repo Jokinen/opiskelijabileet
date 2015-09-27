@@ -45,20 +45,23 @@
   }
 }
   .cr-date-button {
-    height 26px
-    width 26px
-    margin 12px 0 10px 0
+    height 30px
+    width 30px
+    margin 10px 0 10px 0
+    padding 6px 0
+    font-size 14px
+    font-weight 400
     border-radius 100%
     border none
     background #732885
     outline none
+    float left
     & .fa {
       margin-top 3px
     }
-    &--open {
+    &:focus, &:active {
       background #fff
       color #732885
-      transform rotate(180deg)
     }
   }
   .cr-date-button__separator {
@@ -302,10 +305,11 @@
 }
   .cr-input {
     position relative
-    background rgba(255,255,255,0.08)
+    width 200px
     padding 2px 0 2px 40px
     top -1px
     border none
+    background rgba(255,255,255,0.08)
     color rgba(255,255,255,0.96)
     border-bottom 2px solid rgba(255,255,255,0.3)
   }
@@ -316,4 +320,15 @@
     height 1px
     margin 24px 0 25px
     border-top 2px solid rgba(255,255,255,0.3)
+  }
+
+  .cr-input__datepicker {
+    position absolute
+    top 40px
+    left 0
+    width 100%
+    background #B379C2
+    span {
+      float left
+    }
   }
