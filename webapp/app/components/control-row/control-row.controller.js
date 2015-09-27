@@ -72,6 +72,14 @@
             vm.updateDays();
         };
 
+        vm.focusStartDate = function() {
+            vm.startDateOpen = true;
+        };
+
+        vm.focusEndDate = function() {
+            vm.endDateOpen = true;
+        };
+
         function init() {
             vm.state = $state.current.name;
             vm.menus = {
@@ -116,6 +124,8 @@
                     name: 'Savonlinna'
                 }
             ];
+            vm.startDateOpen = false;
+            vm.endDateOpen = false;
             // amount of cities before we reach the last row
             vm.lastRowCount = vm.citiesObj.length - (vm.citiesObj.length % 3);
         }

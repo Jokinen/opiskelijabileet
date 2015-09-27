@@ -13,8 +13,10 @@
                         <input class="cr-input" type="date" name="start-date"
                                max="{{cr.endDate | date:'yyyy-MM-dd'}}"
                                ng-model="cr.startDate"
-                               ng-change="cr.updateDays()">
-                        <div date-picker="start" class="cr-input__datepicker"></div>
+                               ng-change="cr.updateDays()"
+                               ng-click="cr.focusStartDate()">
+                        <div date-picker="start" class="cr-input__datepicker"
+                                ng-class="{'cr-input__datepicker--open': cr.startDateOpen}"></div>
                     </div>
                     <div class="cr-input__separator"></div>
                     <div class="cr-input__wrap">
@@ -22,7 +24,10 @@
                         <input class="cr-input" type="date" name="end-date"
                                min="{{cr.startDate | date:'yyyy-MM-dd'}}"
                                ng-model="cr.endDate"
-                               ng-change="cr.updateDays()">
+                               ng-change="cr.updateDays()"
+                               ng-click="cr.focusEndDate()">
+                        <div date-picker="start" class="cr-input__datepicker"
+                             ng-class="{'cr-input__datepicker--open': cr.endDateOpen}"></div>
                     </div>
                 </div>
                 <div class="cr-date-button__separator"></div>
