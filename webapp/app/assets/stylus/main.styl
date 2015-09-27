@@ -18,6 +18,14 @@ body
   overflow-y scroll
   font-family 'Roboto', Sans-Serif
 
+/* Hide the pop-up calendar from webkit browsers */
+input::-webkit-calendar-picker-indicator{
+  display: none;
+}
+input[type="date"]::-webkit-input-placeholder{
+  visibility: hidden !important;
+}
+
 .max-width
   max-width max-width
   margin 0 auto

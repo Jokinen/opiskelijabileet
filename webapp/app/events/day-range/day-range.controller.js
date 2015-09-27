@@ -3,16 +3,16 @@
 
     angular
         .module('myApp')
-        .controller('WeekController', WeekController);
+        .controller('DayRangeController', DayRangeController);
 
-    WeekController.$inject = ['$stateParams', 'Events'];
+    DayRangeController.$inject = ['$stateParams', 'Events'];
 
-    function WeekController($stateParams, Events) {
+    function DayRangeController($stateParams, Events) {
         var vm = this;
 
         function loadEvents(cities, startDate, endDate) {
             var dateRange = (endDate-startDate)/(1000*60*60*24);
-            Events.getDateList(cities, startDate.getFullYear(), startDate.getMonth()+1, startDate.getDate(), dateRange)
+            Events.getDateList(cities, startDate.getFullYear(), startDate.getMonth()+1, startDate.getDate(), dateRange+1)
                 .success(function(response) {
                     vm.dates = response;
                 })
@@ -57,12 +57,12 @@
             } else {
                 weekday = weekday - 1
             }
+            vm.startDate = new Date(new Date().setDate(startDate.getDate()-weekday));
+            vm.endDate = new Date(new Date().setDate(vm.startDate.getDate()+6));
             vm.selectedEvent = {
                 active:false,
                 event: {}
             };
-            vm.startDate = new Date(new Date().setDate(startDate.getDate()-weekday));
-            vm.endDate = new Date(new Date().setDate(vm.startDate.getDate()+7));
             vm.visibleFilter = '';
             loadEvents(vm.cities, vm.startDate, vm.endDate);
         }

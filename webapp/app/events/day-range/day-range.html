@@ -1,6 +1,6 @@
-<control-row data-cities="week.city" start-date="week.startDate" end-date="week.endDate" update="week.updateEvents" visible-filter="week.visibleFilter" style="position:relative;"></control-row>
+<control-row data-cities="dr.city" start-date="dr.startDate" end-date="dr.endDate" update="dr.updateEvents" visible-filter="dr.visibleFilter" style="position:relative;"></control-row>
 <div class="date-list cf">
-    <div class="date-list__date" ng-repeat="date in week.dates">
+    <div class="date-list__date" ng-repeat="date in dr.dates">
         <div class="date-title">
             <span class="date-title__weekday">
             {{date.date | date:'EEEE'}}
@@ -16,12 +16,12 @@
         <div class="event-list"
              ng-if="date.events.length > 0">
             <div class="event-item"
-                 ng-repeat="event in date.events | orderBy:'start_time' | filter:week.visibleFilter"
-                 ng-click="week.openEvent($parent.$index, $index)"
+                 ng-repeat="event in date.events | orderBy:'start_time' | filter:dr.visibleFilter"
+                 ng-click="dr.openEvent($parent.$index, $index)"
                  ng-class="{'event-item--selected': event.selected}">
                 <div class="event-item__close"
                      ng-if="event.selected"
-                     ng-click="week.closeEvent(); $event.stopPropagation()"></div>
+                     ng-click="dr.closeEvent(); $event.stopPropagation()"></div>
                 <div class="event-item__header"
                      ng-class="{'event-item__header--selected': event.selected}">
                     <div class="event-item__image">
@@ -103,4 +103,4 @@
         </div>
     </div>
 </div>
-<div class="full-backdrop" ng-if="week.selectedEvent.active" ng-click="week.closeEvent()"></div>
+<div class="full-backdrop" ng-if="dr.selectedEvent.active" ng-click="dr.closeEvent()"></div>

@@ -48,6 +48,30 @@
             vm.search.open = false;
         };
 
+        vm.today = function() {
+            var now = new Date();
+            vm.startDate = now;
+            vm.endDate = now;
+            vm.updateDays();
+        };
+
+        vm.thisWeek = function() {
+            var startDate = new Date();
+            var weekday = startDate.getDay(); // 0 = sunday, 1 = monday...
+            /*
+             * 0 = sunday, 1 = monday...
+             * -- > 0 = monday, 1 = tuesday
+             */
+            if (weekday === 0) {
+                weekday = 6;
+            } else {
+                weekday = weekday - 1
+            }
+            vm.startDate = new Date(new Date().setDate(startDate.getDate()-weekday));
+            vm.endDate = new Date(new Date().setDate(vm.startDate.getDate()+6));
+            vm.updateDays();
+        };
+
         function init() {
             vm.state = $state.current.name;
             vm.menus = {
