@@ -11,9 +11,9 @@ config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRou
   $stateProvider
       .state('homeview', {
         url: '/',
-        templateUrl: 'static/events/week/week.html',
-        controller: 'WeekController',
-        controllerAs: 'week'
+        templateUrl: 'static/events/day-range/day-range.html',
+        controller: 'DayRangeController',
+        controllerAs: 'dr'
       })
       .state('events', {
         url: '/events?city&year&month&day&range',

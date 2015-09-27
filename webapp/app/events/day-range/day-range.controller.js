@@ -3,11 +3,11 @@
 
     angular
         .module('myApp')
-        .controller('WeekController', WeekController);
+        .controller('DayRangeController', DayRangeController);
 
-    WeekController.$inject = ['$stateParams', 'Events'];
+    DayRangeController.$inject = ['$stateParams', 'Events'];
 
-    function WeekController($stateParams, Events) {
+    function DayRangeController($stateParams, Events) {
         var vm = this;
 
         function loadEvents(cities, startDate, endDate) {
