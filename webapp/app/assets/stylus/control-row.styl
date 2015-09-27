@@ -7,6 +7,7 @@
   z-index 99
   background op-blue
   width 100%
+  height cr-height
   color #fff
 }
 
@@ -33,6 +34,40 @@
     position absolute
     top 20px
     right 0
+
+.cr-date {
+  float left
+  padding 0 20px
+  height cr-height
+
+  &--open {
+    background rgba(0,0,0,0.08)
+  }
+}
+  .cr-date-button {
+    height 26px
+    width 26px
+    margin 12px 0 10px 0
+    border-radius 100%
+    border none
+    background #732885
+    outline none
+    & .fa {
+      margin-top 3px
+    }
+    &--open {
+      background #fff
+      color #732885
+      transform rotate(180deg)
+    }
+  }
+  .cr-date-button__separator {
+    float left
+    width 15px
+    height 1px
+    margin 24px 0 25px
+    border-top 2px dotted rgba(255,255,255,0.3)
+  }
 
 .cr-filter {
 /* does not exist*/
@@ -128,39 +163,27 @@
     border none
     border-bottom 0 solid rgba(255,255,255, 0.6) // for animation
     padding 0 24px 0 0
-    margin 0 40px 0 0
+    margin 0 20px 0 0
     float left
     outline none
     transition border 0.2s ease-in
     &--open {
       border-bottom 4px solid rgba(255,255,255, 0.4)
     }
-    & .fa {
+    & .fa-map-marker {
+      position relative
+      top 1px
+      margin-right 8px
+      font-size 20px
+      color rgba(255,255,255,0.6)
+    }
+    & .fa-caret-down {
       margin-left 10px
       font-size 14px
       position absolute
       top 18px
       right 0
     }
-  }
-
-  .cr-date-button {
-    height 26px
-    width 26px
-    margin 12px 0 10px 0
-    border-radius 100%
-    border none
-    background #732885
-    & .fa {
-      margin-top 3px
-    }
-  }
-  .cr-date-button__separator {
-    float left
-    width 15px
-    height 1px
-    margin 24px 0 25px
-    border-top 2px dotted rgba(255,255,255,0.3)
   }
 
   .cr-menu__content {
@@ -185,7 +208,7 @@
       max-height 300px
     }
     &--date {
-      left 97px
+      left 140px
     }
     &--open&--date {
       width 762px
@@ -207,7 +230,7 @@
         padding-bottom 0
       }
       &--date {
-        width 762px
+        width 773pxpx
       }
     }
 
