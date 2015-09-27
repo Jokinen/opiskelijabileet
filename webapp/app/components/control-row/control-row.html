@@ -11,6 +11,7 @@
                     <div class="cr-input__wrap">
                         <i class="fa fa-calendar"></i>
                         <input class="cr-input" type="date" name="start-date"
+                               max="{{cr.endDate | date:'yyyy-MM-dd'}}"
                                ng-model="cr.startDate"
                                ng-change="cr.updateDays()">
                     </div>
@@ -18,6 +19,7 @@
                     <div class="cr-input__wrap">
                         <i class="fa fa-calendar"></i>
                         <input class="cr-input" type="date" name="end-date"
+                               min="{{cr.startDate | date:'yyyy-MM-dd'}}"
                                ng-model="cr.endDate"
                                ng-change="cr.updateDays()">
                     </div>
@@ -63,9 +65,10 @@
             <div class="cr-menu__item cr-menu__item--date" ng-class="{'cr-menu__item--open': cr.menus.state === 'date'}">
                 <div class="date-menu__quick">
                     <h3 class="date-menu__h3">Nopeat valinnat</h3>
-                    <button type="button" class="button button--primary">Tämä päivä</button>
-                    <button type="button" class="button button--primary">Tämä viikko</button>
-                    <button type="button" class="button button--primary">Tämä kuukausi</button>
+                    <button type="button" class="button button--primary"
+                            ng-click="cr.today()">Tämä päivä</button>
+                    <button type="button" class="button button--primary"
+                            ng-click="cr.thisWeek()">Tämä viikko</button>
                 </div>
             </div>
         </div>
