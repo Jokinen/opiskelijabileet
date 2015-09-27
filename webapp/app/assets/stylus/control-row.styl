@@ -305,13 +305,12 @@
 }
   .cr-input {
     position relative
-    width 200px
+    width 240px
     padding 2px 0 2px 40px
     top -1px
     border none
     background rgba(255,255,255,0.08)
     color rgba(255,255,255,0.96)
-    border-bottom 2px solid rgba(255,255,255,0.3)
   }
 
   .cr-input__separator {
@@ -324,11 +323,37 @@
 
   .cr-input__datepicker {
     position absolute
-    top 40px
+    top 38px
     left 0
     width 100%
-    background #B379C2
+    max-height 0
+    background #9340A8
+    border-bottom 2px solid #B379C2
+    box-sizing padding-box
+    overflow hidden
+    transition all 0.2s ease-in
+    &--open {
+      padding-top 2px
+      max-height 400px
+    }
+    thead {
+      border-top 1px solid #B379C2
+    }
+    tr {
+      margin-right -3px
+    }
     span {
       float left
+      display block
+      width 25%
+      text-align center
+      height 40px
+      line-height 40px
+      border-top 1px solid #B379C2
+      border-left 1px solid #B379C2
+      padding 0 1px 0 0
+      &:nth-child(4n-3) {
+        border-left none
+      }
     }
   }

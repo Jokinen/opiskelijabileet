@@ -11,7 +11,7 @@
         var vm = this;
 
         function loadEvents(cities, startDate, endDate) {
-            var dateRange = (endDate-startDate)/(1000*60*60*24);
+            var dateRange = Math.round((endDate-startDate)/(1000*60*60*24));
             Events.getDateList(cities, startDate.getFullYear(), startDate.getMonth()+1, startDate.getDate(), dateRange+1)
                 .success(function(response) {
                     vm.dates = response;
