@@ -10,7 +10,7 @@ class Event(models.Model):
     created_on = models.DateTimeField(default=datetime.now, blank=True)
     updated_on = models.DateTimeField(blank=True)
     is_deleted = models.BooleanField(default=False, blank=True)
-    is_public = models.BooleanField(default=False, blank=True)
+    is_public = models.BooleanField(default=True, blank=True)
     creator = models.ForeignKey(User)
     owner_group = models.ForeignKey(GroupProfile)
     city = models.ForeignKey(City)
@@ -23,8 +23,8 @@ class Event(models.Model):
     insta_url = models.URLField(max_length=100, blank=True)
     url = models.URLField(max_length=100, blank=True)
     image = models.ImageField(upload_to='event/', blank=True, default="/images/404thumb.jpg")
-    start_time = models.DateTimeField(blank=True)
-    end_time = models.DateTimeField(blank=True)
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
 
     def save(self, *args, **kwargs):
         # set created_on if object doesn't exist
