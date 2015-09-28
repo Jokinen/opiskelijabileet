@@ -1,4 +1,5 @@
-<div class="control-row control-row--open">
+<div class="control-row"
+        ng-class="{'control-row--mobile': $root.isMobile }">
     <div class="max-width cf">
         <div class="cr-menu__controls">
             <button class="cr-menu__control" ng-class="{'cr-menu__control--open': cr.menus.state === 'city'}" ng-click="cr.toggleMenu('city')">
@@ -6,9 +7,16 @@
                 Kaupungit
                 <i class="fa fa-caret-down cr-menu"></i>
             </button>
-            <div class="cr-date" ng-class="{'cr-date--open': cr.menus.state === 'date'}">
-                <div class="cr-form-group">
-                    <div class="cr-input__wrap">
+            <div class="cr-date__blocker"
+                 ng-if="cr.dateControl && $root.isMobile"
+                 ng-click="cr.toggleDate()"></div>
+            <div class="cr-date"
+                 ng-class="{'cr-date--open': cr.menus.state === 'date', 'cr-date--mobile': $root.isMobile}"
+                 ng-if="cr.dateControl">
+                <div class="cr-form-group"
+                     ng-class="{'cr-form-group--mobile': $root.isMobile}">
+                    <div class="cr-input__wrap"
+                         ng-class="{'cr-input__wrap--mobile': $root.isMobile}">
                         <i class="fa fa-calendar"></i>
                         <input class="cr-input" type="datetime" name="start-date"
                                max="{{cr.endDate | date:'yyyy-MM-dd'}}"
@@ -21,8 +29,10 @@
                                auto-close="true"
                                format="dd-MM-yyyy">
                     </div>
-                    <div class="cr-input__separator"></div>
-                    <div class="cr-input__wrap">
+                    <div class="cr-input__separator"
+                         ng-class="{'cr-input__separator--mobile': $root.isMobile}"></div>
+                    <div class="cr-input__wrap"
+                         ng-class="{'cr-input__wrap--mobile': $root.isMobile}">
                         <i class="fa fa-calendar"></i>
                         <input class="cr-input" type="datetime" name="end-date"
                                min="{{cr.startDate | date:'yyyy-MM-dd'}}"
@@ -36,28 +46,42 @@
                                format="dd-MM-yyyy">
                     </div>
                 </div>
-                <div class="cr-date-button__separator"></div>
+                <div class="cr-date-button__separator" ng-if="!$root.isMobile"></div>
                 <button type="button" class="cr-date-button"
-                        ng-click="cr.today()">
-                    1d
+                        ng-click="cr.today()"
+                        ng-class="{'cr-date-button--mobile': $root.isMobile}">
+                    <span ng-if="!$root.isMobile">1d</span>
+                    <span ng-if="$root.isMobile">Tänään</span>
                 </button>
-                <div class="cr-date-button__separator"></div>
+                <div class="cr-date-button__separator" ng-if="!$root.isMobile"></div>
                 <button type="button" class="cr-date-button"
-                        ng-click="cr.thisWeek()">
-                    7d
+                        ng-click="cr.thisWeek()"
+                        ng-class="{'cr-date-button--mobile': $root.isMobile}">
+                    <span ng-if="!$root.isMobile">7d</span>
+                    <span ng-if="$root.isMobile">Tämä viikko</span>
                 </button>
             </div>
-            <button type="button" class="cr-filter__close"
-                    ng-click="cr.closeSearch()"
-                    ng-show="cr.search.open">
-                <i class="fa fa-times"></i>
-            </button>
-            <button type="button" class="cr-filter__button"
-                    ng-click="cr.openSearch()"
-                    ng-class="{'cr-filter__button--open': cr.search.open}">
-                <i class="fa fa-search"></i>
-            </button>
-            <input type="text" placeholder="Suodata tapahtumia" ng-model="cr.visibleFilter" class="cr-filter__input" ng-class="{'cr-filter__input--open': cr.search.open}">
+            <div class="cr-filter"
+                 ng-class="{'cr-filter--mobile': $root.isMobile}">
+                <button type="button" class="cr-filter__close"
+                        ng-click="cr.closeSearch()"
+                        ng-show="cr.search.open"
+                        ng-class="{'cr-filter__close--mobile': $root.isMobile}">
+                    <i class="fa fa-times"></i>
+                </button>
+                <button type="button" class="cr-filter__button"
+                        ng-click="cr.openSearch()"
+                        ng-class="{'cr-filter__button--open': cr.search.open}">
+                    <i class="fa fa-search"></i>
+                </button>
+                <input type="text" placeholder="Suodata tapahtumia" ng-model="cr.visibleFilter" class="cr-filter__input"
+                       ng-class="{'cr-filter__input--open': cr.search.open, 'cr-filter__input--mobile': $root.isMobile}">
+                <button type="button" class="cr-mobile-date-menu"
+                        ng-if="$root.isMobile"
+                        ng-click="cr.toggleDate()">
+                    <i class="fa fa-calendar"></i>
+                </button>
+            </div>
         </div>
         <div class="cr-menu__content" ng-class="{'cr-menu__content--open': cr.menus.state === 'city'}">
             <div class="cr-menu__item" ng-class="{'cr-menu__item--open': cr.menus.state === 'city'}">
@@ -65,7 +89,7 @@
                     <li class="city-list__item"
                         ng-repeat="city in cr.citiesObj"
                         ng-click="cr.selectCity($index)"
-                        ng-class="{'city-list__item--last-row': ($index + 1) > cr.lastRowCount}">
+                        ng-class="{'city-list__item--last-row': ($index + 1) > cr.lastRowCount, 'city-list__item--mobile': $root.isMobile}">
                         <label class="checkbox-label">
                             <input type="checkbox" name="city"
                                    ng-model="city.selected"
@@ -75,17 +99,6 @@
                         </label>
                     </li>
                 </ul>
-            </div>
-        </div>
-        <div class="cr-menu__content cr-menu__content--date" ng-class="{'cr-menu__content--open': cr.menus.state === 'date'}">
-            <div class="cr-menu__item cr-menu__item--date" ng-class="{'cr-menu__item--open': cr.menus.state === 'date'}">
-                <div class="date-menu__quick">
-                    <h3 class="date-menu__h3">Nopeat valinnat</h3>
-                    <button type="button" class="button button--primary"
-                            ng-click="cr.today()">Tämä päivä</button>
-                    <button type="button" class="button button--primary"
-                            ng-click="cr.thisWeek()">Tämä viikko</button>
-                </div>
             </div>
         </div>
     </div>

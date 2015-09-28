@@ -24,6 +24,14 @@
     &:last-child {
       margin-right 20px
     }
+    &--mobile {
+      max-width 96%
+      margin 0 2%
+      &:last-child,
+      &:first-child {
+        margin 0 2%
+      }
+    }
   }
 .date-title {
   padding 0 0 5px
@@ -197,7 +205,14 @@
           }
         }
         .event-item__date-range {
-          float:left;
+          float left
+          &--mobile {
+            width 100%
+            padding 4px 0 0
+          }
+          &--mobile, &--selected {
+            padding 8px 16px 0
+          }
           &--selected {
             padding 0 16px 0
             font-size 18px
