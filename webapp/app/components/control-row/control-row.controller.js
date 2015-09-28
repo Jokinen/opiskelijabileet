@@ -5,9 +5,9 @@
         .module('myApp')
         .controller('ControlRowController', ControlRowController);
 
-    ControlRowController.$inject = ['$state'];
+    ControlRowController.$inject = ['$state', '$scope'];
 
-    function ControlRowController($state) {
+    function ControlRowController($state, $scope) {
         var vm = this;
 
         vm.updateDays = function() {
@@ -79,6 +79,14 @@
         vm.focusEndDate = function() {
             vm.endDateOpen = true;
         };
+
+        // grumble grumble grumble
+        $scope.$watch('cr.startDate', function() {
+            vm.updateDays();
+        });
+        $scope.$watch('cr.endDate', function() {
+            vm.updateDays();
+        });
 
         function init() {
             vm.state = $state.current.name;

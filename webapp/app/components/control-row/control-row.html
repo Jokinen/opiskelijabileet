@@ -10,24 +10,30 @@
                 <div class="cr-form-group">
                     <div class="cr-input__wrap">
                         <i class="fa fa-calendar"></i>
-                        <input class="cr-input" type="date" name="start-date"
+                        <input class="cr-input" type="datetime" name="start-date"
                                max="{{cr.endDate | date:'yyyy-MM-dd'}}"
                                ng-model="cr.startDate"
                                ng-change="cr.updateDays()"
-                               ng-click="cr.focusStartDate()">
-                        <div date-picker="start" class="cr-input__datepicker"
-                                ng-class="{'cr-input__datepicker--open': cr.startDateOpen}"></div>
+                               ng-click="cr.focusStartDate()"
+                               date-time
+                               min-view="date"
+                               max="cr.endDate"
+                               auto-close="true"
+                               format="dd-MM-yyyy">
                     </div>
                     <div class="cr-input__separator"></div>
                     <div class="cr-input__wrap">
                         <i class="fa fa-calendar"></i>
-                        <input class="cr-input" type="date" name="end-date"
+                        <input class="cr-input" type="datetime" name="end-date"
                                min="{{cr.startDate | date:'yyyy-MM-dd'}}"
                                ng-model="cr.endDate"
                                ng-change="cr.updateDays()"
-                               ng-click="cr.focusEndDate()">
-                        <div date-picker="start" class="cr-input__datepicker"
-                             ng-class="{'cr-input__datepicker--open': cr.endDateOpen}"></div>
+                               ng-click="cr.focusEndDate()"
+                               date-time
+                               min-view="date"
+                               min="cr.startDate"
+                               auto-close="true"
+                               format="dd-MM-yyyy">
                     </div>
                 </div>
                 <div class="cr-date-button__separator"></div>

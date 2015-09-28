@@ -306,9 +306,10 @@
   .cr-input {
     position relative
     width 240px
-    padding 2px 0 2px 40px
+    padding 4px 0 4px 40px
     top -1px
     border none
+    border-bottom 2px solid #B379C2
     background rgba(255,255,255,0.08)
     color rgba(255,255,255,0.96)
   }
@@ -321,23 +322,24 @@
     border-top 2px solid rgba(255,255,255,0.3)
   }
 
-  .cr-input__datepicker {
+  [date-picker-wrapper] {
     position absolute
     top 38px
     left 0
     width 100%
-    max-height 0
     background #9340A8
     border-bottom 2px solid #B379C2
     box-sizing padding-box
     overflow hidden
     transition all 0.2s ease-in
-    &--open {
-      padding-top 2px
-      max-height 400px
+    table {
+      width 100%
     }
     thead {
       border-top 1px solid #B379C2
+    }
+    *[ng-repeat="day in weekdays"] {
+      display none
     }
     tr {
       margin-right -3px
@@ -355,5 +357,19 @@
       &:nth-child(4n-3) {
         border-left none
       }
+    }
+    td[ng-repeat="day in week"] {
+      width (100/7)%
+      border-left 1px #B379C2
+      box-sizing border-box
+      &:nth-child(n7-6) {
+        border-left none
+      }
+      span {
+        width 100%
+      }
+    }
+    .active {
+      background #B379C2
     }
   }
