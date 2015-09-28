@@ -2,7 +2,9 @@
         ng-class="{'control-row--mobile': $root.isMobile }">
     <div class="max-width cf">
         <div class="cr-menu__controls">
-            <button class="cr-menu__control" ng-class="{'cr-menu__control--open': cr.menus.state === 'city'}" ng-click="cr.toggleMenu('city')">
+            <button class="cr-menu__control"
+                    ng-class="{'cr-menu__control--open': cr.menus.state === 'city', 'cr-menu__control--mobile': $root.isMobile}"
+                    ng-click="cr.toggleMenu('city')">
                 <i class="fa fa-map-marker map"></i>
                 Kaupungit
                 <i class="fa fa-caret-down cr-menu"></i>
