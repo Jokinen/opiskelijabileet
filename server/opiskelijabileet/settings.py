@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'group_profile',
     'city',
     'taggit',
+    'school',
 )
 
 MIDDLEWARE_CLASSES = (
