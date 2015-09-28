@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from event.models import Event
 from rest_framework import serializers
+from group_profile.serializer import GroupProfileSerializer
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,7 +11,7 @@ class EventSerializer(serializers.ModelSerializer):
             'created_on',
             'updated_on',
             'creator',
-            'owner_group',
+            'owner_groups',
             'name',
             'city',
             'place',

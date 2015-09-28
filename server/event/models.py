@@ -12,7 +12,7 @@ class Event(models.Model):
     is_deleted = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=True, blank=True)
     creator = models.ForeignKey(User)
-    owner_group = models.ForeignKey(GroupProfile)
+    owner_groups = models.ManyToManyField(GroupProfile)
     city = models.ForeignKey(City)
     labels = TaggableManager()
     place = models.CharField(max_length=100, blank=True)
@@ -22,7 +22,7 @@ class Event(models.Model):
     tw_url = models.URLField(max_length=100, blank=True)
     insta_url = models.URLField(max_length=100, blank=True)
     url = models.URLField(max_length=100, blank=True)
-    image = models.ImageField(upload_to='event/', blank=True, default="/images/404thumb.jpg")
+    image = models.ImageField(upload_to='event/', blank=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 
