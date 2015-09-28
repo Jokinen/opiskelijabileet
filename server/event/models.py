@@ -4,13 +4,17 @@ from datetime import datetime
 
 from group_profile.models import GroupProfile
 from city.models import City
+from taggit.managers import TaggableManager
 
 class Event(models.Model):
     created_on = models.DateTimeField(default=datetime.now, blank=True)
     updated_on = models.DateTimeField(blank=True)
-    owner = models.ForeignKey(User)
+    is_deleted = models.BooleanField(default=False, blank=True)
+    is_public = models.BooleanField(default=False, blank=True)
+    creator = models.ForeignKey(User)
     owner_group = models.ForeignKey(GroupProfile)
     city = models.ForeignKey(City)
+    labels = TaggableManager()
     place = models.CharField(max_length=100, blank=True)
     name = models.CharField(max_length=200, blank=True)
     description = models.TextField(max_length=1000, blank=True)
@@ -18,7 +22,7 @@ class Event(models.Model):
     tw_url = models.URLField(max_length=100, blank=True)
     insta_url = models.URLField(max_length=100, blank=True)
     url = models.URLField(max_length=100, blank=True)
-    image_thumb = models.ImageField(upload_to='wallpapers/thumb/', blank=True, default="/images/404thumb.jpg")
+    image = models.ImageField(upload_to='event/', blank=True, default="/images/404thumb.jpg")
     start_time = models.DateTimeField(blank=True)
     end_time = models.DateTimeField(blank=True)
 
