@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'event',
     'group_profile',
     'city',
+    'taggit',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -119,3 +120,7 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Taggit
+
+TAGGIT_CASE_INSENSITIVE = True
