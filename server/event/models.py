@@ -12,7 +12,7 @@ class Event(models.Model):
     is_deleted = models.BooleanField(default=False, blank=True)
     is_public = models.BooleanField(default=True, blank=True)
     creator = models.ForeignKey(User)
-    owner_groups = models.ManyToManyField(GroupProfile)
+    owner_groups = models.ForeignKey(GroupProfile)
     city = models.ForeignKey(City)
     labels = TaggableManager()
     place = models.CharField(max_length=100, blank=True)
