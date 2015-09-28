@@ -9,7 +9,7 @@ class EventSerializer(serializers.ModelSerializer):
             'id',
             'created_on',
             'updated_on',
-            'owner',
+            'creator',
             'owner_group',
             'name',
             'city',
@@ -19,7 +19,7 @@ class EventSerializer(serializers.ModelSerializer):
             'insta_url',
             'tw_url',
             'url',
-            'image_thumb',
+            'image',
             'start_time',
             'end_time'
         )
