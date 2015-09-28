@@ -5,9 +5,9 @@
         .module('myApp')
         .controller('ControlRowController', ControlRowController);
 
-    ControlRowController.$inject = ['$state', '$scope'];
+    ControlRowController.$inject = ['$state', '$scope', '$rootScope'];
 
-    function ControlRowController($state, $scope) {
+    function ControlRowController($state, $scope, $rootScope) {
         var vm = this;
 
         vm.updateDays = function() {
@@ -53,6 +53,9 @@
             vm.startDate = now;
             vm.endDate = now;
             vm.updateDays();
+            if ($rootScope.isMobile) {
+                vm.dateControl = false;
+            }
         };
 
         vm.thisWeek = function() {
@@ -70,6 +73,9 @@
             vm.startDate = new Date(new Date().setDate(startDate.getDate()-weekday));
             vm.endDate = new Date(new Date().setDate(vm.startDate.getDate()+6));
             vm.updateDays();
+            if ($rootScope.isMobile) {
+                vm.dateControl = false;
+            }
         };
 
         vm.focusStartDate = function() {
@@ -78,6 +84,10 @@
 
         vm.focusEndDate = function() {
             vm.endDateOpen = true;
+        };
+
+        vm.toggleDate = function() {
+            vm.dateControl = !vm.dateControl;
         };
 
         // grumble grumble grumble
@@ -136,6 +146,7 @@
             vm.endDateOpen = false;
             // amount of cities before we reach the last row
             vm.lastRowCount = vm.citiesObj.length - (vm.citiesObj.length % 3);
+            vm.dateControl = !$rootScope.isMobile;
         }
         init();
     }

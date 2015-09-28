@@ -1,6 +1,8 @@
 <control-row data-cities="dr.city" start-date="dr.startDate" end-date="dr.endDate" update="dr.updateEvents" visible-filter="dr.visibleFilter" style="position:relative;"></control-row>
 <div class="date-list cf">
-    <div class="date-list__date" ng-repeat="date in dr.dates">
+    <div class="date-list__date"
+         ng-repeat="date in dr.dates"
+         ng-class="{'date-list__date--mobile': isMobile}">
         <div class="date-title">
             <span class="date-title__weekday">
             {{date.date | date:'EEEE'}}
@@ -56,14 +58,15 @@
                                 {{event.place}}
                             </div>
                             <div class="event-item__date-range cf"
-                                 ng-if="event.start_time.getDay() === event.end_time.getDay() && !event.selected">
+                                 ng-if="event.start_time.getDay() === event.end_time.getDay() && !event.selected"
+                                 ng-class="{'event-item__date-range--mobile': isMobile}">
                                 <i class="fa fa-clock-o" ng-if="!event.selected"></i>
                                 <div class="event-item__start-date">{{event.start_time | date:'H:mm'}}</div>
                                 <div class="event-item__end-date">{{event.end_time | date:'H:mm'}}</div>
                             </div>
                             <div class="event-item__date-range cf"
                                  ng-if="event.start_time.getDay() !== event.end_time.getDay() || event.selected"
-                                 ng-class="{'event-item__date-range--selected': event.selected}">
+                                 ng-class="{'event-item__date-range--selected': event.selected, 'event-item__date-range--mobile': isMobile}">
                                 <div class="event-item__label"
                                      ng-if="event.selected">Aika</div>
                                 <i class="fa fa-clock-o" ng-if="!event.selected"></i>
