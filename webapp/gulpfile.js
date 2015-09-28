@@ -34,7 +34,7 @@ gulp.task('stylus', function () {
         .pipe(stylus({
             compress: true
         }))
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('/'))
         .pipe(gulp.dest('./app/assets/css/'))
         .pipe(livereload());
 });
