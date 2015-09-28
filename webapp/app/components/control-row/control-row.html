@@ -62,7 +62,7 @@
                 </button>
             </div>
             <div class="cr-filter"
-                 ng-class="{'cr-filter--mobile': $root.isMobile}">
+                 ng-class="{'cr-filter--mobile': $root.isMobile, 'cr-filter--open': cr.search.open}">
                 <button type="button" class="cr-filter__close"
                         ng-click="cr.closeSearch()"
                         ng-show="cr.search.open"
