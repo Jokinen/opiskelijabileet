@@ -90,6 +90,10 @@
             vm.dateControl = !vm.dateControl;
         };
 
+        vm.toggleSidemenu = function() {
+            vm.sidemenu = !vm.sidemenu;
+        };
+
         // grumble grumble grumble
         $scope.$watch('cr.startDate', function() {
             vm.updateDays();
@@ -147,6 +151,7 @@
             // amount of cities before we reach the last row
             vm.lastRowCount = vm.citiesObj.length - (vm.citiesObj.length % 3);
             vm.dateControl = !$rootScope.isMobile;
+            vm.sidemenu = false;
         }
         init();
     }

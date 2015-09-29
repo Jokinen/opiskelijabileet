@@ -114,6 +114,7 @@
     position absolute
     z-index 90
     right 0
+    display block
     border none
     border-right 26px solid transparent
     background-clip padding-box
@@ -122,12 +123,14 @@
     color #000
     border-radius 20px 0 0 20px
     max-width 0
+    height 34px
     transition all 0.2s ease-in
     outline none
     box-sizing border-box
     &--open {
       padding-left 20px
-      max-width 200px
+      width 400px
+      max-width 400px
       transition all 0.2s ease-in 0.2s
     }
     &--mobile&--open {
@@ -177,15 +180,14 @@
   }
   .cr-filter__close {
     position absolute
-    right -34px
+    right -40px
     top 0
-    background transparent
+    background op-blue
     border none
     color rgba(255,255,255,0.4)
     font-size 20px
-    width 34px
-    height 34px
-    margin 8px
+    width 40px
+    height cr-height
     border-radius 100%
     outline none
     z-index 100
@@ -200,6 +202,11 @@
   position relative
   z-index 100
   background op-blue
+  margin-right 46px
+  &--mobile {
+    right -10px
+    margin-left -10px
+  }
 }
   .cr-menu__control {
     height cr-height
@@ -457,11 +464,27 @@
   float right
   color #fff
   font-size 20px
-  width 34px
-  height 34px
-  margin 8px
+  width cr-height
+  height cr-height
   border-radius 100%
   outline none
   position relative
+  transition all 0.2s ease-in 0.2s
+}
+
+.cr-side-menu-button {
+  position absolute
+  right -46px
+  top 0
+  background transparent
+  border none
+  float right
+  color #fff
+  font-size 20px
+  width 46px
+  height cr-height
+  padding 1px 0 0
+  border-radius 100%
+  outline none
   transition all 0.2s ease-in 0.2s
 }
