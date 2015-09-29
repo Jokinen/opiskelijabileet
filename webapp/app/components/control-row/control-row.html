@@ -1,7 +1,8 @@
 <div class="control-row"
         ng-class="{'control-row--mobile': $root.isMobile }">
     <div class="max-width cf">
-        <div class="cr-menu__controls">
+        <div class="cr-menu__controls"
+             ng-class="{'cr-menu__controls--mobile': $root.isMobile}">
             <button class="cr-menu__control"
                     ng-class="{'cr-menu__control--open': cr.menus.state === 'city', 'cr-menu__control--mobile': $root.isMobile}"
                     ng-click="cr.toggleMenu('city')">
@@ -63,6 +64,10 @@
                     <span ng-if="$root.isMobile">Tämä viikko</span>
                 </button>
             </div>
+            <button type="button" class="cr-side-menu-button"
+                    ng-click="cr.toggleSidemenu()">
+                <i class="fa fa-ellipsis-v"></i>
+            </button>
             <div class="cr-filter"
                  ng-class="{'cr-filter--mobile': $root.isMobile, 'cr-filter--open': cr.search.open}">
                 <button type="button" class="cr-filter__close"
@@ -78,12 +83,12 @@
                 </button>
                 <input type="text" placeholder="Suodata tapahtumia" ng-model="cr.visibleFilter" class="cr-filter__input"
                        ng-class="{'cr-filter__input--open': cr.search.open, 'cr-filter__input--mobile': $root.isMobile}">
-                <button type="button" class="cr-mobile-date-menu"
-                        ng-if="$root.isMobile"
-                        ng-click="cr.toggleDate()">
-                    <i class="fa fa-calendar"></i>
-                </button>
             </div>
+            <button type="button" class="cr-mobile-date-menu"
+                    ng-if="$root.isMobile"
+                    ng-click="cr.toggleDate()">
+                <i class="fa fa-calendar"></i>
+            </button>
         </div>
         <div class="cr-menu__content" ng-class="{'cr-menu__content--open': cr.menus.state === 'city'}">
             <div class="cr-menu__item" ng-class="{'cr-menu__item--open': cr.menus.state === 'city'}">
@@ -103,5 +108,29 @@
                 </ul>
             </div>
         </div>
+    </div>
+</div>
+<div class="sidemenu__blocker"
+     ng-class="{'sidemenu__blocker--open': cr.sidemenu}"
+     ng-click="cr.toggleSidemenu()"></div>
+<div class="sidemenu"
+     ng-class="{'sidemenu--open': cr.sidemenu}">
+    <div class="sidemenu__body">
+        <div class="sidemenu__notice">
+            Olemme avoimessa alphassa, joten jotkin asiat saattavat olla vielä vähän vinksin vonksin &#x1F605;
+        </div>
+        <h2 class="sidemenu__title">Opiskelijatapahtumat</h2>
+        <div class="sidemenu__description">Opiskelijatapahtumat.fi on suomalaisen korkeakouluopiskelijan tärkein apuväline menovinkkien löytämiseen. Mukaan mahtuu tietysti opiskelijabileet mutta muutkin menokohteet ovat toivottuja.
+
+            Tulemme lisäämään tapahtumia pikapuoliin, ja pyrimme aktiivisesti kehittämään palvelua saadun palautteen mukaan &#x1F44D;
+        </div>
+    </div>
+    <div class="sidemenu__footer">
+        <ul class="sidemenu__condensed-list cf">
+            <li class="sidemenu__condensed-item"><a class="sidemenu__condensed-link disabled">ToS</a></li>
+            <li class="sidemenu__condensed-item"><a class="sidemenu__condensed-link disabled">Ota Yhteyttä</a></li>
+            <li class="sidemenu__condensed-item"><a class="sidemenu__condensed-link disabled">Info</a></li>
+        </ul>
+        <div class="sidemenu__copyright">&copy; 2015 Opiskelijabileet.fi</div>
     </div>
 </div>
