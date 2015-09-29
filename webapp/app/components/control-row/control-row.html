@@ -20,7 +20,7 @@
                     <div class="cr-input__wrap"
                          ng-class="{'cr-input__wrap--mobile': $root.isMobile}">
                         <i class="fa fa-calendar"></i>
-                        <input class="cr-input" type="datetime" name="start-date"
+                        <input class="cr-input" type="text" name="start-date"
                                max="{{cr.endDate | date:'yyyy-MM-dd'}}"
                                ng-model="cr.startDate"
                                ng-change="cr.updateDays()"
@@ -36,7 +36,7 @@
                     <div class="cr-input__wrap"
                          ng-class="{'cr-input__wrap--mobile': $root.isMobile}">
                         <i class="fa fa-calendar"></i>
-                        <input class="cr-input" type="datetime" name="end-date"
+                        <input class="cr-input" type="text" name="end-date"
                                min="{{cr.startDate | date:'yyyy-MM-dd'}}"
                                ng-model="cr.endDate"
                                ng-change="cr.updateDays()"
