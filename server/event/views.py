@@ -21,7 +21,7 @@ class DateQuery(APIView):
     """
     def get(self, request):
         if request.method == 'GET':
-            events = Event.objects.all().select_related()
+            events = Event.objects.filter(is_public=True).select_related()
             if 'cities' in request.GET:
                 cities = request.GET['cities'].split(',')
                 events = events.filter(city__name__in=cities)
