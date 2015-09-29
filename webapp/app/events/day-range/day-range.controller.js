@@ -24,19 +24,23 @@
             loadEvents(city, startDate, endDate);
         };
 
-        vm.openEvent = function(dayIndex, eventIndex) {
+        vm.openEvent = function(day, event) {
+            var dayIndex = vm.dates.indexOf(day);
+            var eventIndex = vm.dates[dayIndex].events.indexOf(event);
             if (!vm.selectedEvent.active) {
                 vm.dates[dayIndex].events[eventIndex].selected = true;
                 vm.selectedEvent = {
                     active: true,
-                    dayIndex: dayIndex,
-                    eventIndex: eventIndex
+                    day: day,
+                    event: event
                 };
             }
         };
 
         vm.closeEvent = function() {
-            vm.dates[vm.selectedEvent.dayIndex].events[vm.selectedEvent.eventIndex].selected = false;
+            var dayIndex = vm.dates.indexOf(vm.selectedEvent.day);
+            var eventIndex = vm.dates[dayIndex].events.indexOf(vm.selectedEvent.event);
+            vm.dates[dayIndex].events[eventIndex].selected = false;
             vm.selectedEvent.active = false;
         };
 

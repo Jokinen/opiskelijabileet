@@ -5,10 +5,10 @@
          ng-class="{'date-list__date--mobile': isMobile}">
         <div class="date-title">
             <span class="date-title__weekday">
-            {{date.date | date:'EEEE'}}
+            {{date.date | amDateFormat:'dddd'}}
             </span>
             <span class="date-title__date">
-            {{date.date | date:'(MMM d, y)'}}
+            {{date.date | amDateFormat:'(DD.MM)'}}
             </span>
         </div>
         <div class="event-list--empty"
@@ -19,7 +19,7 @@
              ng-if="date.events.length > 0">
             <div class="event-item"
                  ng-repeat="event in date.events | orderBy:'start_time' | filter:dr.visibleFilter"
-                 ng-click="dr.openEvent($parent.$index, $index)"
+                 ng-click="dr.openEvent(date, event)"
                  ng-class="{'event-item--selected': event.selected}">
                 <div class="event-item__close"
                      ng-if="event.selected"
@@ -58,20 +58,22 @@
                                 {{event.place}}
                             </div>
                             <div class="event-item__date-range cf"
-                                 ng-if="event.start_time.getDay() === event.end_time.getDay() && !event.selected"
-                                 ng-class="{'event-item__date-range--mobile': isMobile}">
-                                <i class="fa fa-clock-o" ng-if="!event.selected"></i>
-                                <div class="event-item__start-date">{{event.start_time | date:'H:mm'}}</div>
-                                <div class="event-item__end-date">{{event.end_time | date:'H:mm'}}</div>
-                            </div>
-                            <div class="event-item__date-range cf"
-                                 ng-if="event.start_time.getDay() !== event.end_time.getDay() || event.selected"
+                                 ng-if="(event.start_time | amDateFormat:'D') === (event.end_time | amDateFormat:'D')"
                                  ng-class="{'event-item__date-range--selected': event.selected, 'event-item__date-range--mobile': isMobile}">
                                 <div class="event-item__label"
                                      ng-if="event.selected">Aika</div>
                                 <i class="fa fa-clock-o" ng-if="!event.selected"></i>
-                                <div class="event-item__start-date">{{event.start_time | date:'MMM d H:mm'}}</div>
-                                <div class="event-item__end-date">{{event.end_time | date:'MMM d H:mm'}}</div>
+                                <div class="event-item__start-date">{{event.start_time | amDateFormat:'H:mm'}}</div>
+                                <div class="event-item__end-date">{{event.end_time | amDateFormat:'H:mm'}}</div>
+                            </div>
+                            <div class="event-item__date-range cf"
+                                 ng-if="(event.start_time | amDateFormat:'D') !== (event.end_time | amDateFormat:'D')"
+                                 ng-class="{'event-item__date-range--selected': event.selected, 'event-item__date-range--mobile': isMobile}">
+                                <div class="event-item__label"
+                                     ng-if="event.selected">Aika</div>
+                                <i class="fa fa-clock-o" ng-if="!event.selected"></i>
+                                <div class="event-item__start-date">{{event.start_time | amDateFormat:'H:mm (DD.MM)'}}</div>
+                                <div class="event-item__end-date">{{event.end_time | amDateFormat:'H:mm (DD.MM)'}}</div>
                             </div>
                         </div>
                     </div>
