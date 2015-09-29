@@ -12,6 +12,9 @@
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
-    "angular-datepicker": "~1.0.16"
+    "angular-datepicker": "~1.0.16",
+    "moment": "~2.10.6",
+    "angular-moment": "~0.10.3",
+    "angular-i18n": "~1.4.6"
   }
 }
