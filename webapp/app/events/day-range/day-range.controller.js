@@ -32,8 +32,8 @@
             } else {
                 weekday = weekday - 1
             }
-            vm.startDate = new Date(new Date().setDate(day.getDate()-weekday));
-            vm.endDate = new Date(new Date().setDate(vm.startDate.getDate()+6));
+            vm.startDate = new Date(new Date().setTime(day.getTime()-(weekday*1000*60*60*24)));
+            vm.endDate = new Date(new Date().setTime(vm.startDate.getTime()+(6*1000*60*60*24)));
             loadEvents(vm.cities, vm.startDate, vm.endDate, function(){
                 if (dayObj && targetEvent) {
                     vm.openEvent(dayObj, targetEvent);
