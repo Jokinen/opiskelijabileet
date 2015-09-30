@@ -22,15 +22,14 @@
                          ng-class="{'cr-input__wrap--mobile': $root.isMobile}">
                         <i class="fa fa-calendar"></i>
                         <input class="cr-input" type="text" name="start-date"
-                               max="{{cr.endDate | date:'yyyy-MM-dd'}}"
                                ng-model="cr.startDate"
                                ng-change="cr.updateDays()"
                                ng-click="cr.focusStartDate()"
                                date-time
-                               min-view="date"
+                               data-min-view="date"
                                max="cr.endDate"
-                               auto-close="true"
-                               format="dd-MM-yyyy">
+                               data-auto-close="true"
+                               data-format="dd-MM-yyyy">
                     </div>
                     <div class="cr-input__separator"
                          ng-class="{'cr-input__separator--mobile': $root.isMobile}"></div>
@@ -38,15 +37,14 @@
                          ng-class="{'cr-input__wrap--mobile': $root.isMobile}">
                         <i class="fa fa-calendar"></i>
                         <input class="cr-input" type="text" name="end-date"
-                               min="{{cr.startDate | date:'yyyy-MM-dd'}}"
                                ng-model="cr.endDate"
                                ng-change="cr.updateDays()"
                                ng-click="cr.focusEndDate()"
                                date-time
-                               min-view="date"
+                               data-min-view="date"
                                min="cr.startDate"
-                               auto-close="true"
-                               format="dd-MM-yyyy">
+                               data-auto-close="true"
+                               data-format="dd-MM-yyyy">
                     </div>
                 </div>
                 <div class="cr-date-button__separator" ng-if="!$root.isMobile"></div>
@@ -122,7 +120,7 @@
         <h2 class="sidemenu__title">Opiskelijatapahtumat</h2>
         <div class="sidemenu__description">Opiskelijatapahtumat.fi on suomalaisen korkeakouluopiskelijan tärkein apuväline menovinkkien löytämiseen. Mukaan mahtuu tietysti opiskelijabileet mutta muutkin menokohteet ovat toivottuja.
 
-            Tulemme lisäämään tapahtumia pikapuoliin, ja pyrimme aktiivisesti kehittämään palvelua saadun palautteen mukaan &#x1F44D;
+            Tulemme lisäämään tapahtumia pikapuoliin, ja pyrimme kehittämään palvelua aktiivisesti saadun palautteen mukaan &#x1F44D;
         </div>
     </div>
     <div class="sidemenu__footer">

@@ -95,11 +95,19 @@
         };
 
         // grumble grumble grumble
+        // Both of these have dirty hacks to play around the first time they are changed
+        // There's a arbitrary change for both fields, when datepicker hooks onto them
         $scope.$watch('cr.startDate', function() {
-            vm.updateDays();
+            if (vm.startDateFirst) {
+                vm.updateDays();
+            }
+            vm.startDateFirst = true;
         });
         $scope.$watch('cr.endDate', function() {
-            vm.updateDays();
+            if (vm.endDateFirst) {
+                vm.updateDays();
+            }
+            vm.endDateFirst = true;
         });
 
         function init() {
