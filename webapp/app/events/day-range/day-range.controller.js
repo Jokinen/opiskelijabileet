@@ -64,10 +64,12 @@
                     day: vm.dates[dayIndex],
                     event: vm.dates[dayIndex].events[eventIndex]
                 };
-                $state.go('event', {eventId: vm.selectedEvent.event.id}, {
-                    notify: false,
-                    reload: false
-                });
+                if ($state.current.name !== 'event') {
+                    $state.go('event', {eventId: vm.selectedEvent.event.id}, {
+                        notify: false,
+                        reload: false
+                    });
+                }
             }
         };
 
@@ -85,7 +87,9 @@
             } else {
                 vm.cities = 'all';
             }
-            vm.selectedEvent = {};
+            vm.selectedEvent = {
+                active: false
+            };
             if ($stateParams.eventId) {
                 Events.getEvent($stateParams.eventId)
                     .success(function(event){

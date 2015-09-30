@@ -18,9 +18,11 @@
              * start and end time simultaneously, updateDays would be called
              * unnecessarily.
              */
-            if (vm.lastCall && vm.lastCall === new Date().setMilliseconds(0))
-                return;
-            vm.lastCall = new Date().setMilliseconds(0);
+            var difference = vm.lastCall - new Date();
+            if (vm.lastCall && difference <= 0) {
+                return false;
+            }
+            vm.lastCall = new Date();
 
             var cities = [];
             angular.forEach(vm.citiesObj, function(city) {
@@ -107,16 +109,16 @@
         // Both of these have dirty hacks to play around the first time they are changed
         // There's a arbitrary change for both fields, when datepicker hooks onto them
         $scope.$watch('cr.startDate', function() {
-            if (vm.startDateFirst) {
+            if (vm.startDateFirst === 2) {
                 vm.updateDays();
             }
-            vm.startDateFirst = true;
+            vm.startDateFirst += 1;
         });
         $scope.$watch('cr.endDate', function() {
-            if (vm.endDateFirst) {
+            if (vm.endDateFirst === 2) {
                 vm.updateDays();
             }
-            vm.endDateFirst = true;
+            vm.endDateFirst += 1;
         });
 
         function init() {
@@ -169,6 +171,8 @@
             vm.lastRowCount = vm.citiesObj.length - (vm.citiesObj.length % 3);
             vm.dateControl = !$rootScope.isMobile;
             vm.sidemenu = false;
+            vm.startDateFirst = 0;
+            vm.endDateFirst = 0;
         }
         init();
     }
