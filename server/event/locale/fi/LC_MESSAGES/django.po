@@ -62,8 +62,6 @@ msgid "Place"
 msgstr "tapahtumapaikka"
 
 #: models.py:24
-#, fuzzy
-#| msgid "Event's homepage"
 msgid "Event's Name"
 msgstr "Tapahtuman nimi"
 

@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.core.urlresolvers import reverse
 
 from group_profile.models import GroupProfile
 from city.models import City
@@ -68,6 +69,9 @@ class Event(models.Model):
                 'start_time': ValidationError(_("Start time must be before end time!")),
                 'end_time': ValidationError(_("End time must be after start time!")),
             })
+
+    def get_absolute_url(self):
+        return reverse('event', kwargs={'id':self.id})
 
     def __unicode__(self):
         return unicode(self.name)
