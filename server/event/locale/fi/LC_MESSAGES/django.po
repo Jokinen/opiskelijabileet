@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-30 13:00+0300\n"
+"POT-Creation-Date: 2015-09-30 14:55+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,47 +17,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: models.py:14
-msgid "event"
-msgstr "tapahtuma"
-
 #: models.py:15
-msgid "events"
-msgstr "tapahtumat"
-
-#: models.py:17
 msgid "Created"
 msgstr "Luotu"
 
-#: models.py:18
+#: models.py:16
 msgid "Updated"
 msgstr "Päivitetty"
 
-#: models.py:19
+#: models.py:17
 msgid "Deleted"
 msgstr "Poistettu"
 
-#: models.py:20
+#: models.py:18
 msgid "Public"
 msgstr "Julkinen"
 
-#: models.py:21
+#: models.py:19
 msgid "Creator"
 msgstr "Luoja"
 
-#: models.py:22
+#: models.py:20
 msgid "Owner groups"
 msgstr "Omistajaryhmät"
 
-#: models.py:23
+#: models.py:21
 msgid "City"
 msgstr "Kaupunki"
 
-#: models.py:24
+#: models.py:22
 msgid "Labels"
 msgstr "Etiketti"
 
-#: models.py:24
+#: models.py:22
 msgid ""
 "Choose one from: bileet (we need to make up other fitting types, but bileet "
 "might be enoughto start)"
@@ -65,21 +57,21 @@ msgstr ""
 "Valitse yksi näistä: bileet (pitää keksiä lisää muita tyyppejä, mutta "
 "bileetriittänee aluksi)"
 
-#: models.py:25
+#: models.py:23
 msgid "Place"
 msgstr "tapahtumapaikka"
 
-#: models.py:26
+#: models.py:24
 #, fuzzy
 #| msgid "Event's homepage"
 msgid "Event's Name"
 msgstr "Tapahtuman nimi"
 
-#: models.py:27
+#: models.py:25
 msgid "Price"
 msgstr "Hinta"
 
-#: models.py:27
+#: models.py:25
 msgid ""
 "The most common amount the event will cost for someone taking part. In "
 "euros. Please include discounts in the description(s)."
@@ -87,78 +79,105 @@ msgstr ""
 "Tyypillisin määrä, jonka tapahtumaan osaa ottava maksaa (euroissa). "
 "Lisääalennukset kuvaukseen."
 
-#: models.py:28
+#: models.py:26
 msgid "Description in Finnish"
 msgstr "Kuvaus Suomeksi"
 
-#: models.py:28
+#: models.py:26
 msgid "Description used with the Finnish translation of the page"
 msgstr "Kuvaus, jota käytetään sivun suomenkielisen version kanssa"
 
-#: models.py:29
+#: models.py:27
 msgid "Description in English"
 msgstr "Kuvaus Englanniksi"
 
-#: models.py:29
+#: models.py:27
 msgid "Description used with the English translation of the page"
 msgstr "Kuvaus, jota käytetään sivun englanninkielisen version kanssa."
 
-#: models.py:30
+#: models.py:28
 msgid "Description in Swedish"
 msgstr "Kuvaus ruotsiksi"
 
-#: models.py:30
+#: models.py:28
 msgid "Description used with the Swedish translation of the page"
 msgstr "Kuvaus, jota käytetään sivun ruotsinkielisen käännöksen kanssa"
 
-#: models.py:31
+#: models.py:29
 msgid "Facebook"
 msgstr "Facebook"
 
-#: models.py:31
+#: models.py:29
 msgid "Facebook page or event page for the event"
 msgstr "Facebook sivu tai tapahtumasivu tapahtumalle"
 
-#: models.py:32
+#: models.py:30
 msgid "Twitter"
 msgstr "Twitter"
 
-#: models.py:32
+#: models.py:30
 msgid "Twitter profile for the event"
 msgstr "Twitter profiili tapahtumalle"
 
-#: models.py:33
+#: models.py:31
 msgid "Instagram"
 msgstr "Instagram"
 
-#: models.py:33
+#: models.py:31
 msgid "Instagram profile for the event"
 msgstr "Instagram profiili tapahtumalle"
 
-#: models.py:34
+#: models.py:32
 msgid "Homepage"
 msgstr "Kotisivu"
 
-#: models.py:34
+#: models.py:32
 msgid "Event's homepage"
 msgstr "Tapahtuman kotisivu"
 
-#: models.py:35
+#: models.py:33
 msgid "Image"
 msgstr "Kuva"
 
-#: models.py:36
+#: models.py:33
+msgid ""
+"Maximum height: 400px, Maximum width: 600px, Allowed formats: jpeg(jpg), png"
+msgstr ""
+"Maksimikorkeus: 400px, Maksimileveys: 600px, Sallitut formaatit: jpeg (jpg), "
+"png"
+
+#: models.py:34
 msgid "Start time"
 msgstr "Alkamisaika"
 
-#: models.py:37
+#: models.py:35
 msgid "End time"
 msgstr "Lopetusaika"
 
-#: models.py:50
+#: models.py:38
+msgid "event"
+msgstr "tapahtuma"
+
+#: models.py:39
+msgid "events"
+msgstr "tapahtumat"
+
+#: models.py:58
+msgid "Only *.jpg and *.png images are allowed."
+msgstr "Vain *.jpg ja *.png kuvat ovat sallittuja"
+
+#: models.py:61
+msgid "The image is {}px wide when the maximum width is {}px"
+msgstr "Kuva on {}px leveä, kun maksimileveys on {}px"
+
+#: models.py:63
+msgid "The image is {}px high when the maximum height is {}px"
+msgstr "Kuva on {}px korkea, kun maksimikorkeus on {}px"
+
+#: models.py:68
 msgid "Start time must be before end time!"
 msgstr "Aloitusajan täytyy olla ennen lopetusaikaa!"
 
-#: models.py:51
+#: models.py:69
 msgid "End time must be after start time!"
 msgstr "Lopetusajan täytyy olla enen aloitusaikaa!"

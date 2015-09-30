@@ -1,3 +1,5 @@
+import imghdr
+
 from django.utils.translation import ugettext_lazy as _
 from django.db import models
 from django.contrib.auth.models import User
@@ -10,10 +12,6 @@ from taggit.managers import TaggableManager
 from django.core.exceptions import ValidationError
 
 class Event(models.Model):
-    class Meta:
-        verbose_name = _('event')
-        verbose_name_plural = _('events')
-
     created_on = models.DateTimeField(default=timezone.now, blank=True, verbose_name=_('Created'))
     updated_on = models.DateTimeField(blank=True, verbose_name=_('Updated'))
     is_deleted = models.BooleanField(default=False, blank=True, verbose_name=_('Deleted'))
@@ -32,9 +30,13 @@ class Event(models.Model):
     tw_url = models.URLField(max_length=100, blank=True, verbose_name=_('Twitter'), help_text=_('Twitter profile for the event'))
     insta_url = models.URLField(max_length=100, blank=True, verbose_name=_('Instagram'), help_text=_('Instagram profile for the event'))
     url = models.URLField(max_length=100, blank=True, verbose_name=_('Homepage'), help_text=_('Event\'s homepage'))
-    image = models.ImageField(upload_to='event/', blank=True, verbose_name=_('Image'))
+    image = models.ImageField(upload_to='event/', blank=True, verbose_name=_('Image'), help_text=_('Maximum height: 400px, Maximum width: 600px, Allowed formats: jpeg(jpg), png'))
     start_time = models.DateTimeField(verbose_name=_('Start time'))
     end_time = models.DateTimeField(verbose_name=_('End time'))
+
+    class Meta:
+        verbose_name = _('event')
+        verbose_name_plural = _('events')
 
     def save(self, *args, **kwargs):
         # set created_on if object doesn't exist
@@ -45,6 +47,22 @@ class Event(models.Model):
         super(Event, self).save(*args, **kwargs)
 
     def clean(self):
+        if self.image:
+            from django.core.files.images import get_image_dimensions
+            image_errors = []
+            max_width = 600
+            max_height = 400
+            image_formats = ['jpeg', 'png']
+            print(imghdr.what(self.image))
+            if imghdr.what(self.image) not in image_formats:
+                image_errors.append(ValidationError(_('Only *.jpg and *.png images are allowed.')))
+            w, h = get_image_dimensions(self.image)
+            if w > max_width:
+                image_errors.append(ValidationError(_("The image is {}px wide when the maximum width is {}px").format(w, max_width)))
+            if h > max_height:
+                image_errors.append(ValidationError(_("The image is {}px high when the maximum height is {}px").format(h, max_height)))
+            if len(image_errors) > 0:
+                raise ValidationError({'image': image_errors})
         if self.start_time > self.end_time:
             raise ValidationError({
                 'start_time': ValidationError(_("Start time must be before end time!")),
