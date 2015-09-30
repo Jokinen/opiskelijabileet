@@ -28,7 +28,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '.opiskelijatapahtumat.fi'
+    '.opiskelijatapahtumat.fi',
+    '46.101.226.205'
 ]
 
 # Application definition
