@@ -4,3 +4,6 @@ from django.contrib.auth.models import Group
 class GroupProfile(models.Model):
     group = models.OneToOneField(Group, unique=True)
     url = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return unicode(self.group.name)
