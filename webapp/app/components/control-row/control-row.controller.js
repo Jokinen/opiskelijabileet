@@ -11,6 +11,17 @@
         var vm = this;
 
         vm.updateDays = function() {
+            /*
+             * A dirty hack to compensate for having to use $watch as datepicker
+             * doesn't support ng-change. It checks if two calls fr updates were
+             * made at the same time excluding milliseconds. When setting
+             * start and end time simultaneously, updateDays would be called
+             * unnecessarily.
+             */
+            if (vm.lastCall && vm.lastCall === new Date().setMilliseconds(0))
+                return;
+            vm.lastCall = new Date().setMilliseconds(0);
+
             var cities = [];
             angular.forEach(vm.citiesObj, function(city) {
                 if (city.selected) {
@@ -52,7 +63,6 @@
             var now = new Date();
             vm.startDate = now;
             vm.endDate = now;
-            vm.updateDays();
             if ($rootScope.isMobile) {
                 vm.dateControl = false;
             }
@@ -72,7 +82,6 @@
             }
             vm.startDate = new Date(new Date().setDate(startDate.getDate()-weekday));
             vm.endDate = new Date(new Date().setDate(vm.startDate.getDate()+6));
-            vm.updateDays();
             if ($rootScope.isMobile) {
                 vm.dateControl = false;
             }
