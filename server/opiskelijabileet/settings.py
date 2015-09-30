@@ -57,6 +57,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 )
 
 ROOT_URLCONF = 'opiskelijabileet.urls'
@@ -103,6 +104,16 @@ DATABASES = {
 LANGUAGE_CODE = 'fi-fi'
 
 TIME_ZONE = 'Europe/Helsinki'
+
+ugettext = lambda s: s
+
+LANGUAGES = (
+    ('fi-FI', ugettext('Finnish')),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'event/locale/'),
+)
 
 USE_I18N = True
 
