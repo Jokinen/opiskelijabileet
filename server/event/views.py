@@ -3,6 +3,7 @@ from event.models import Event
 from event.serializers import EventSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.shortcuts import get_object_or_404
 
 
 class EventList(APIView):
@@ -12,6 +13,16 @@ class EventList(APIView):
     def get(self, request, format=None):
         events = Event.objects.all()
         serializer = EventSerializer(events, many=True)
+        return Response(serializer.data)
+
+
+class EventSingle(APIView):
+    """
+    Get event.
+    """
+    def get(self, request, id, format=None):
+        event = get_object_or_404(Event, pk=id)
+        serializer = EventSerializer(event)
         return Response(serializer.data)
 
 
@@ -50,7 +61,7 @@ class DateQuery(APIView):
 
 class DateList(APIView):
     """
-    Events for a specific date.
+    Events for a specific dates.
     """
     def get(self, request, year, month, day):
         year, month, day = int(year), int(month), int(day)

@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf.urls import include, url, patterns
 from django.contrib import admin
 from django.views.generic import TemplateView
+from django.contrib.sitemaps.views import sitemap
+from opiskelijabileet.sitemap import EventSiteMap
 
 admin.autodiscover()
 
@@ -23,10 +25,23 @@ apipatterns = [
     url(r'events/', include('event.urls')),
 ]
 
+sitemaps = {
+    'event': EventSiteMap(),
+}
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^api/', include(apipatterns)),
+    url(r'^robots\.txt$',
+        TemplateView.as_view(
+            template_name='templates/robots.txt', content_type='text/plain')),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
+        name='django.contrib.sitemaps.views.sitemap'),
+    # define separately for reversing
+    url(r'^events/(?P<id>[0-9]+)/$',
+        TemplateView.as_view(template_name='index.html'),
+        name='event'),
+    url(r'^.*$', TemplateView.as_view(template_name='index.html')),
 ]
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns

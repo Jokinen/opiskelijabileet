@@ -1,30 +1,42 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ui.router',
-  'datePicker',
-  'angularMoment'
-]).
-config(['$stateProvider',
+angular
+    .module('myApp', [
+      'ui.router',
+      'datePicker',
+      'angularMoment'
+    ])
+    .config(['$stateProvider',
         '$urlRouterProvider',
-        function($stateProvider, $urlRouterProvider) {
-
-  $urlRouterProvider.otherwise('/');
-
-  $stateProvider
-      .state('homeview', {
-        url: '/',
-        templateUrl: 'static/events/day-range/day-range.html',
-        controller: 'DayRangeController',
-        controllerAs: 'dr'
-      })
-      .state('events', {
-        url: '/events?city&year&month&day&range',
-        templateUrl: 'static/events/events.html',
-        controller: 'EventsCtrl',
-        controllerAs: 'events'
-      });
+        '$locationProvider',
+        function($stateProvider, $urlRouterProvider, $locationProvider) {
+            $locationProvider.html5Mode(true);
+            $urlRouterProvider.otherwise('/');
+            $stateProvider
+              .state('events', {
+                url: '/',
+                templateUrl: 'static/events/day-range/day-range.html',
+                controller: 'DayRangeController',
+                controllerAs: 'dr'
+              })
+              /*.state('events', {
+                url: '/events?city&year&month&day&range',
+                templateUrl: 'static/events/events.html',
+                controller: 'EventsCtrl',
+                controllerAs: 'events'
+              })*/
+              .state('foo', {
+                url: '/foo',
+                template: 'static/events/day-range/day-range.html',
+                controller: function() {}
+              })
+              .state('event', {
+                url: '/events/:eventId',
+                templateUrl: 'static/events/day-range/day-range.html',
+                controller: 'DayRangeController',
+                controllerAs: 'dr'
+              });
 }]);
 
 angular.module('myApp').run(function($rootScope, amMoment) {
