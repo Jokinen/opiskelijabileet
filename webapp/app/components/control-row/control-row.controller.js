@@ -19,7 +19,7 @@
              * unnecessarily.
              */
             var difference = vm.lastCall - new Date();
-            if (vm.lastCall && difference <= 0) {
+            if (vm.lastCall && difference < 0 && difference > -10) {
                 return false;
             }
             vm.lastCall = new Date();
@@ -68,6 +68,7 @@
             if ($rootScope.isMobile) {
                 vm.dateControl = false;
             }
+            vm.updateDays();
         };
 
         vm.thisWeek = function() {
@@ -87,6 +88,7 @@
             if ($rootScope.isMobile) {
                 vm.dateControl = false;
             }
+            vm.updateDays();
         };
 
         vm.focusStartDate = function() {
@@ -109,13 +111,13 @@
         // Both of these have dirty hacks to play around the first time they are changed
         // There's a arbitrary change for both fields, when datepicker hooks onto them
         $scope.$watch('cr.startDate', function() {
-            if (vm.startDateFirst === 2) {
+            if (vm.startDateFirst > 1) {
                 vm.updateDays();
             }
             vm.startDateFirst += 1;
         });
         $scope.$watch('cr.endDate', function() {
-            if (vm.endDateFirst === 2) {
+            if (vm.endDateFirst > 1) {
                 vm.updateDays();
             }
             vm.endDateFirst += 1;
