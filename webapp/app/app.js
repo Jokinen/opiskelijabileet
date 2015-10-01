@@ -40,6 +40,8 @@ angular
 }]);
 
 angular.module('myApp').run(function($rootScope, amMoment) {
+    console.log("scroll");
+    window.scrollTo(0,1);
     amMoment.changeLocale('fi');
     $rootScope.isMobile = (function() {
          var check = false;
