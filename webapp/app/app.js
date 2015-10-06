@@ -41,7 +41,7 @@ angular
 
 angular
     .module('myApp')
-    .run(function($rootScope, amMoment, User) {
+    .run(function($rootScope, amMoment) {
     amMoment.changeLocale('fi');
     $rootScope.isMobile = (function() {
          var check = false;
