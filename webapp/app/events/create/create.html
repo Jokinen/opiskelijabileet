@@ -1,0 +1,160 @@
+<div class="page__bg"></div>
+<div class="page">
+    <form class="form" ng-submit="create.submitEvent()">
+        <div class="form__body">
+            <div class="form-group" 
+                 ng-class="{'form-group': !create.error.name, 'form-group--error': create.error.name}">
+                <div class="form-group__detail">
+                    <label class="form-group__label">Nimi</label>
+                    <div class="form-group__description">Moro moro</div>
+                </div>
+                <div class="form-group__input">
+                    <input type="text" class="form-group__control" ng-model="create.event.name">
+                    <div class="form-group__error" ng-if="create.error.name" ng-bind="create.error.name"></div>
+                </div>
+            </div>
+            <div class="form-group" 
+                 ng-class="{'form-group': !create.error.description_fi, 'form-group--error': create.error.description_fi}">
+                <div class="form-group__detail">
+                    <label class="form-group__label">Kuvaus</label>
+                    <div class="form-group__description">Suomeksi</div>
+                </div>
+                <div class="form-group__input">
+                    <textarea class="form-group__control" ng-model="create.event.description_fi"></textarea>
+                    <div class="form-group__error" ng-if="create.error.description_fi" ng-bind="create.error.description_fi"></div>
+                </div>
+            </div>
+            <div class="form-group" 
+                 ng-class="{'form-group': !create.error.description_en, 'form-group--error': create.error.description_en}">
+                <div class="form-group__detail">
+                    <label class="form-group__label">Kuvaus</label>
+                    <div class="form-group__description">Englanniksi</div>
+                </div>
+                <div class="form-group__input">
+                    <textarea class="form-group__control" ng-model="create.event.description_en"></textarea>
+                    <div class="form-group__error" ng-if="create.error.description_en" ng-bind="create.error.description_en"></div>
+                </div>
+            </div>
+            <div class="form-group"
+                 ng-class="{'form-group': !create.error.description_se, 'form-group--error': create.error.description_se}">
+                <div class="form-group__detail">
+                    <label class="form-group__label">Kuvaus</label>
+                    <div class="form-group__description">Ruotsiksi</div>
+                </div>
+                <div class="form-group__input">
+                    <textarea class="form-group__control" ng-model="create.event.description_se"></textarea>
+                    <div class="form-group__error" ng-if="create.error.description_se" ng-bind="create.error.description_se"></div>
+                </div>
+            </div>
+            <div class="form-group"
+                 ng-class="{'form-group': !create.error.city, 'form-group--error': create.error.city || create.error.place || create.error.price}">
+                <div class="form-group__detail">
+                    <div class="form-group__description">Moro moro</div>
+                </div>
+                <div class="form-group__input">
+                    <div class="input-group--40">
+                        <label class="form-group__label">Kaupunki</label>
+                        <input type="text" class="form-group__control" ng-model="create.event.city">
+                        <div class="form-group__error" ng-if="create.error.city" ng-bind="create.error.city"></div>
+                    </div>
+                    <div class="input-group--40">
+                        <label class="form-group__label">Paikka</label>
+                        <input type="text" class="form-group__control" ng-model="create.event.place">
+                        <div class="form-group__error" ng-if="create.error.place" ng-bind="create.error.place"></div>
+                    </div>
+                    <div class="input-group--20">
+                        <label class="form-group__label">Hinta</label>
+                        <input type="text" class="form-group__control" ng-model="create.event.price">
+                        <div class="form-group__error" ng-if="create.error.price" ng-bind="create.error.price"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group"
+                 ng-class="{'form-group': !create.error.owners, 'form-group--error': create.error.owners}">
+                <div class="form-group__detail">
+                    <label class="form-group__label">Omistajat</label>
+                    <div class="form-group__description">Moro moro</div>
+                </div>
+                <div class="form-group__input">
+                    <input type="text" class="form-group__control" ng-model="create.event.owners">
+                    <div class="form-group__error" ng-if="create.error.owners" ng-bind="create.error.owners"></div>
+                </div>
+            </div>
+            <div class="form-group"
+                 ng-class="{'form-group': !create.error.start_time, 'form-group--error': create.error.start_time || create.error.end_time}">
+                <div class="form-group__detail">
+                    <div class="form-group__description">Moro moro</div>
+                </div>
+                <div class="form-group__input">
+                    <div class="input-group--half">
+                        <label class="form-group__label">Alkaa</label>
+                        <input type="text" class="form-group__control" ng-model="create.event.start_time">
+                        <div class="form-group__error" ng-if="create.error.start_time" ng-bind="create.error.start_time"></div>
+                    </div>
+                    <div class="input-group--half">
+                        <label class="form-group__label">Loppuu</label>
+                        <input type="text" class="form-group__control" ng-model="create.event.end_time">
+                        <div class="form-group__error" ng-if="create.error.end_time" ng-bind="create.error.end_time"></div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="form-group"
+                 ng-class="{'form-group': !create.error.image, 'form-group--error': create.error.image}">
+                <div class="form-group__detail">
+                    <label class="form-group__label">Kuva</label>
+                    <div class="form-group__description">Moro moro</div>
+                </div>
+                <div class="form-group__input">
+                    <input type="file" class="form-group__control" ng-model="create.event.image">
+                    <div class="form-group__error" ng-if="create.error.image" ng-bind="create.error.image"></div>
+                    <div class="form-group__image">
+                        <img ng-if="create.event.image" ng-src="{{create.event.image}}" alt="Event's image">
+                    </div>
+                </div>
+            </div>-->
+            <div class="form-group" ng-class="{'form-group': !create.error.fb_url, 'form-group--error': create.error.fb_url}">
+                <div class="form-group__detail">
+                    <label class="form-group__label">Facebook</label>
+                    <div class="form-group__description">Moro moro</div>
+                </div>
+                <div class="form-group__input">
+                    <input type="text" class="form-group__control" ng-model="create.event.fb_url">
+                    <div class="form-group__error" ng-if="create.error.fb_url" ng-bind="create.error.fb_url"></div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'form-group': !create.error.insta_url, 'form-group--error': create.error.insta_url}">
+                <div class="form-group__detail">
+                    <label class="form-group__label">Instagram</label>
+                    <div class="form-group__description">Moro moro</div>
+                </div>
+                <div class="form-group__input">
+                    <input type="text" class="form-group__control" ng-model="create.event.insta_url">
+                    <div class="form-group__error" ng-if="create.error.insta_url" ng-bind="create.error.insta_url"></div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'form-group': !create.error.tw_url, 'form-group--error': create.error.tw_url}">
+                <div class="form-group__detail">
+                    <label class="form-group__label">Twitter</label>
+                    <div class="form-group__description">Moro moro</div>
+                </div>
+                <div class="form-group__input">
+                    <input type="text" class="form-group__control" ng-model="create.event.tw_url">
+                    <div class="form-group__error" ng-if="create.error.tw_url" ng-bind="create.error.tw_url"></div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{'form-group': !create.error.url, 'form-group--error': create.error.url}">
+                <div class="form-group__detail">
+                    <label class="form-group__label">Kotisivu</label>
+                    <div class="form-group__description">Moro moro</div>
+                </div>
+                <div class="form-group__input">
+                    <input type="text" class="form-group__control" ng-model="create.event.url">
+                    <div class="form-group__error" ng-if="create.error.url" ng-bind="create.error.url"></div>
+                </div>
+            </div>
+        </div>
+        <div class="form__control-row">
+            <input type="submit" value="Tallenna" class="form-group__submit">
+        </div>
+    </form>
+</div>

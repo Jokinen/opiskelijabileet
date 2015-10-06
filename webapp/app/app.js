@@ -5,13 +5,18 @@ angular
     .module('myApp', [
       'ui.router',
       'datePicker',
-      'angularMoment'
+      'angularMoment',
+      'ngUpload'
     ])
     .config(['$stateProvider',
         '$urlRouterProvider',
         '$locationProvider',
-        function($stateProvider, $urlRouterProvider, $locationProvider) {
+        '$httpProvider',
+        function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+            $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+            $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
             $locationProvider.html5Mode(true);
+
             $urlRouterProvider.otherwise('/');
             $stateProvider
               .state('events', {
@@ -20,16 +25,11 @@ angular
                 controller: 'DayRangeController',
                 controllerAs: 'dr'
               })
-              /*.state('events', {
-                url: '/events?city&year&month&day&range',
-                templateUrl: 'static/events/events.html',
-                controller: 'EventsCtrl',
-                controllerAs: 'events'
-              })*/
-              .state('foo', {
-                url: '/foo',
-                template: 'static/events/day-range/day-range.html',
-                controller: function() {}
+              .state('create', {
+                url: '/events/create?fbEventId',
+                templateUrl: 'static/events/create/create.html',
+                controller: 'events.CreateCtrl',
+                controllerAs: 'create'
               })
               .state('event', {
                 url: '/events/:eventId',
@@ -39,9 +39,9 @@ angular
               });
 }]);
 
-angular.module('myApp').run(function($rootScope, amMoment) {
-    console.log("scroll");
-    window.scrollTo(0,1);
+angular
+    .module('myApp')
+    .run(function($rootScope, amMoment, User) {
     amMoment.changeLocale('fi');
     $rootScope.isMobile = (function() {
          var check = false;

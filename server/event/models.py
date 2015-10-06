@@ -23,7 +23,7 @@ class Event(models.Model):
     labels = TaggableManager(verbose_name=_('Labels'), help_text=_('Choose one from: bileet (we need to make up other fitting types, but bileet might be enoughto start)'))
     place = models.CharField(max_length=100, blank=True, verbose_name=_('Place'))
     name = models.CharField(max_length=200, blank=True, verbose_name=_('Event\'s Name'))
-    price = models.PositiveIntegerField(blank=True, verbose_name=_('Price'), help_text=_('The most common amount the event will cost for someone taking part. In euros. Please include discounts in the description(s).'))
+    price = models.PositiveIntegerField(blank=True, null=True, verbose_name=_('Price'), help_text=_('The most common amount the event will cost for someone taking part. In euros. Please include discounts in the description(s).'))
     description_fi = models.TextField(max_length=2000, blank=True, verbose_name=_('Description in Finnish'), help_text=_('Description used with the Finnish translation of the page'))
     description_en = models.TextField(max_length=2000, blank=True, verbose_name=_('Description in English'), help_text=_('Description used with the English translation of the page'))
     description_se = models.TextField(max_length=2000, blank=True, verbose_name=_('Description in Swedish'), help_text=_('Description used with the Swedish translation of the page'))

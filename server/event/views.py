@@ -1,9 +1,16 @@
 import datetime
-from event.models import Event
-from event.serializers import EventSerializer
+from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
 from rest_framework.views import APIView
+from rest_framework import status
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
+from django.core import serializers
+from django.http import Http404
+from event.models import Event
+from event.serializers import EventSerializer
+from city.models import City
+from city.serializers import CitySerializer
+from group_profile.models import GroupProfile
 
 
 class EventList(APIView):
@@ -20,10 +27,21 @@ class EventSingle(APIView):
     """
     Get event.
     """
+    parser_classes = (JSONParser, FormParser, MultiPartParser)
+
     def get(self, request, id, format=None):
         event = get_object_or_404(Event, pk=id)
         serializer = EventSerializer(event)
         return Response(serializer.data)
+
+    def post(self, request, format=None):
+        request.data[u'creator'] = self.request.user.id
+        serializer = EventSerializer(data=request.data)
+        if serializer.is_valid():
+            #print(serializer)
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class DateQuery(APIView):
