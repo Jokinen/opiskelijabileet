@@ -19,6 +19,8 @@ from django.views.generic import TemplateView
 from django.contrib.sitemaps.views import sitemap
 from opiskelijabileet.sitemap import EventSiteMap
 
+from facebook_api.views import get_fb_event
+
 admin.autodiscover()
 
 apipatterns = [
@@ -31,6 +33,7 @@ sitemaps = {
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^rest-auth/', include('rest_auth.urls')),
     url(r'^api/', include(apipatterns)),
     url(r'^robots\.txt$',
         TemplateView.as_view(
@@ -41,6 +44,7 @@ urlpatterns = [
     url(r'^events/(?P<id>[0-9]+)/$',
         TemplateView.as_view(template_name='index.html'),
         name='event'),
+    url(r'^facebook/event/(?P<id>[0-9]+)', view=get_fb_event),
     url(r'^.*$', TemplateView.as_view(template_name='index.html')),
 ]
 

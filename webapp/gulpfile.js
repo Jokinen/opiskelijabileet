@@ -16,6 +16,7 @@ gulp.task('compressAngular', function() {
             // end MODULES
             // target .js files, but ignore test resources
             './app/components/**/*.js',
+            './app/services/**/*.js',
             './app/events/**/*.js'
             // Custom skips
         ]

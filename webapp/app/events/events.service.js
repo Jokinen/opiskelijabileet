@@ -8,8 +8,11 @@
     Events.$inject = ['$http'];
 
     function Events($http) {
-        this.getEvent = function(id) {
+        this.get = function(id) {
             return $http.get('api/events/event/'+id);
+        };
+        this.create = function(eventDatas) {
+            return $http.post('api/events/event/', eventDatas);
         };
         this.getDay = function(year, month, day) {
             return $http.get('api/events/as-dates/'+year+'/'+month+'/'+day);

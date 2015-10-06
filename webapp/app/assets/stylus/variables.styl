@@ -1,7 +1,22 @@
 op-blue = #8A30A0
 link-color = #437CD8
 warning-color = #FBFFB8
+danger-color = #CA4141
 max-width = 1000px
 
 nav-height = 0
 cr-height = 50px
+
+cf = @block {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+
+  &:after {
+    clear: both;
+  }
+}

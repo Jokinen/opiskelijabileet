@@ -43,10 +43,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'taggit',
+    'taggit_serializer',
     'event',
     'group_profile',
     'city',
-    'taggit',
     'school',
 )
 
@@ -140,3 +143,10 @@ MEDIA_URL = 'media/'
 # Taggit
 
 TAGGIT_CASE_INSENSITIVE = True
+
+OAUTH_TOKENS_FACEBOOK_CLIENT_ID = '214476328617064'
+OAUTH_TOKENS_FACEBOOK_CLIENT_SECRET = '04a22861d0e4a0fb059be2830bc645ad'
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'opiskelijabileet.auth_serializer.UserDetailsSerializer',
+}

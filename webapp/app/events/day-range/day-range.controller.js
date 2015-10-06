@@ -91,7 +91,7 @@
                 active: false
             };
             if ($stateParams.eventId) {
-                Events.getEvent($stateParams.eventId)
+                Events.get($stateParams.eventId)
                     .success(function(event){
                         var date = new Date(event.start_time);
                         Events.getDay(date.getFullYear(), date.getMonth()+1, date.getDate())
