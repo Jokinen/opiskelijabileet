@@ -32,7 +32,7 @@
                     vm.event['place'] = event.location;
                     vm.event['owners'] = event.owner.name;
                     vm.event['start_time'] = event.start_time;
-                    vm.event['end_time'] = event.end_time || '2015-10-01T23:00:00+0300';
+                    vm.event['end_time'] = event.end_time;
                     //vm.event['image'] = event.cover.source;
                     vm.event['fb_url'] = 'https://facebook.com/events'+event.id;
                     vm.event['labels'] = ['bileet'];
