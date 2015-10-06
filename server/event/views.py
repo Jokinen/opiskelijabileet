@@ -3,6 +3,9 @@ from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAdminUser
 from django.shortcuts import get_object_or_404
 from django.core import serializers
 from django.http import Http404
@@ -34,14 +37,15 @@ class EventSingle(APIView):
         serializer = EventSerializer(event)
         return Response(serializer.data)
 
-    def post(self, request, format=None):
-        request.data[u'creator'] = self.request.user.id
-        serializer = EventSerializer(data=request.data)
-        if serializer.is_valid():
-            #print(serializer)
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+@api_view(['POST'])
+@permission_classes((IsAdminUser, ))
+def create_event(request):
+    request.data[u'creator'] = 1
+    serializer = EventSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class DateQuery(APIView):

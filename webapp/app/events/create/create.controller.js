@@ -13,10 +13,11 @@
         function createEvent(event) {
             Events.create(event)
                 .success(function (groupId) {
-                    alert.log("Event with name"+ groupId.name);
+                    alert("Event with name"+ groupId.name);
                 })
                 .error(function (error) {
                     alert("Creating event failed, look in browser's js console for the error");
+                    console.log(error);
                     vm.error = error;
                 });
         }
